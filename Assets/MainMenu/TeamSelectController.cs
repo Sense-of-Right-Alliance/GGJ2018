@@ -72,7 +72,7 @@ public class TeamSelectController : MonoBehaviour {
                 if (inputCooldown[i] < INPUT_COOLDOWN) {
                     inputCooldown[i] += Time.deltaTime;
                 } else {
-                    if (rewiredPlayers[i].GetButtonDown(GameSettings.REWIRED_MAIN_BUTTON)) {
+                    if (rewiredPlayers[i].GetButtonDown(GameSettings.REWIRED_MAIN_BTN)) {
                         if (!isJoined[i]) {
                             Debug.Log("Join!");
                             isJoined[i] = true;

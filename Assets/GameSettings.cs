@@ -11,6 +11,14 @@
         AI,
         NETWORKED
     }
+
+    public enum INSTRUMENT_ACTIONS {
+        ACTION_0 = 0,
+        ACTION_1 = 1,
+        ACTION_2 = 2,
+        ACTION_3 = 3
+    }
+    public const int NUM_ACTIONS = 4;
     
     // Scene Names:
     public const string MAIN_MENU_SCENE = "Init";
@@ -18,8 +26,11 @@
 
     // Button Names:
     public const string REWIRED_START = "Start";
-    public const string REWIRED_MAIN_BUTTON = "MainAction";
+    public const string REWIRED_MAIN_BTN = "MainAction";
     public const string REWIRED_SECONDARY_BTN = "SecondaryAction";
+    public const string REWIRED_THIRD_BTN = "ThirdAction";
+    public const string REWIRED_FOURTH_BTN = "FourthAction";
+
     // Bleh these probably shouldn't be different. Start is used in menu scenes, pause is used in game.
     public const string REWIRED_SYSTEM_START = "MainAction";
     public const string REWIRED_SYSTEM_PAUSE = "SecondaryAction";
@@ -27,5 +38,10 @@
     public const int MAX_PLAYERS = 4;  // Currently 4, could be eiiiight
     // TODO-DG: would also have to change Rewired to handle 8
 
-    public static PLAYER_TYPES[] PlayerTypes = new PLAYER_TYPES[MAX_PLAYERS];
+    public static PLAYER_TYPES[] PlayerTypes = {
+        PLAYER_TYPES.AI,
+        PLAYER_TYPES.AI,
+        PLAYER_TYPES.AI,
+        PLAYER_TYPES.AI
+    };
 }
