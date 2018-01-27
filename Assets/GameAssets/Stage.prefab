@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1367064584916276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.298, y: 0.17, z: 0}
+  m_LocalPosition: {x: -0.024029262, y: -0.019790418, z: 0}
   m_LocalScale: {x: 0.017813157, y: 0.017813157, z: 0.017813157}
   m_Children: []
   m_Father: {fileID: 0}
@@ -114,7 +114,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1880377834
+  randomSeed: 343532767
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1017,14 +1017,14 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 0.3137255}
-        key2: {r: 0, g: 0, b: 0, a: 0}
-        key3: {r: 0, g: 0, b: 0, a: 0}
-        key4: {r: 0, g: 0, b: 0, a: 0}
-        key5: {r: 0, g: 0, b: 0, a: 0}
-        key6: {r: 0, g: 0, b: 0, a: 0}
+        key1: {r: 1, g: 1, b: 1, a: 0.75686276}
+        key2: {r: 0, g: 0, b: 0, a: 0.039215688}
+        key3: {r: 0, g: 0, b: 0, a: 0.039215688}
+        key4: {r: 0, g: 0, b: 0, a: 0.039215688}
+        key5: {r: 0, g: 0, b: 0, a: 0.039215688}
+        key6: {r: 0, g: 0, b: 0, a: 0.039215688}
         key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 0
+        ctime0: 13928
         ctime1: 65535
         ctime2: 0
         ctime3: 0
@@ -1032,17 +1032,17 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 0
-        atime1: 65535
-        atime2: 0
-        atime3: 0
-        atime4: 0
-        atime5: 0
-        atime6: 0
+        atime0: 13928
+        atime1: 38303
+        atime2: 65446
+        atime3: 65446
+        atime4: 65446
+        atime5: 65446
+        atime6: 65446
         atime7: 0
         m_Mode: 0
         m_NumColorKeys: 2
-        m_NumAlphaKeys: 2
+        m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
