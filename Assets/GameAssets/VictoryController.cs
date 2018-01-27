@@ -26,25 +26,22 @@ public class VictoryController : MonoBehaviour {
         Debug.Log("Starting Victory");
         RoundController.OnRoundChange += HandleRoundChanged;
     }
-
-    /*
+    
     void OnDestroy()
     {
-        Debug.Log("Destroying Victory");
         RoundController.OnRoundChange -= HandleRoundChanged;
     }
-    */
 
     void HandleRoundChanged()
     {
-        Debug.Log("Round changed!! OH NOOO! " + numRounds);
+        Debug.Log("Round changed: " + numRounds);
         roundCount += 1;
 
         if (roundCount >= numRounds)
         {
             // pause the game
             // show the score screen
-            Debug.Log("Game is over! Show the score screen!");
+            //Debug.Log("Game is over! Show the score screen!");
 
             Dictionary<int, int> myDict = new Dictionary<int, int>
             {
