@@ -8,6 +8,8 @@ public class PauseController : MonoBehaviour {
 
     [SerializeField]
     private GameObject pauseCanvas;
+    [SerializeField]
+    private Button resumeButton;
 
     private Player[] rPlayers = new Player[GameSettings.MAX_PLAYERS];
     private bool paused = false;
@@ -42,6 +44,8 @@ public class PauseController : MonoBehaviour {
                     paused = true;
                     Time.timeScale = 0.0f;
                     pauseCanvas.SetActive(true);
+                    resumeButton.OnSelect(null);
+                    resumeButton.Select();
                 }
             }
         }
