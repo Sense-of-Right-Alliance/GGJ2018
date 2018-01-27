@@ -14,6 +14,7 @@ public class RoundController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         roundTimer = roundTime; // NOTE: Round change is not called at the very start of the game
+        Debug.Log("Round Controller: STarting!");
     }
 	
 	// Update is called once per frame
@@ -27,6 +28,7 @@ public class RoundController : MonoBehaviour {
     }
 
     void ChangeRound() {
+        Debug.Log("Round Controller: Changing Round!");
         if (OnRoundChange != null) {
             OnRoundChange();
         }
