@@ -26,8 +26,6 @@ public class ScoreCanvas : MonoBehaviour {
     private GameObject[] playerNames;
     private GameObject[] playerScores;
 
-    bool fieldsInitialized = false;
-
     // Use this for initialization
     void Awake () {
         InitFields();
@@ -46,14 +44,10 @@ public class ScoreCanvas : MonoBehaviour {
         playerScores[1] = playerTwoScore;
         playerScores[2] = playerThreeScore;
         playerScores[3] = playerFourScore;
-
-        fieldsInitialized = true;
     }
 
     public void HidePlayer(int playerId)
     {
-        //if (!fieldsInitialized) InitFields();
-
         playerNames[playerId].SetActive(false);
         playerScores[playerId].SetActive(false);
     }
@@ -68,16 +62,12 @@ public class ScoreCanvas : MonoBehaviour {
 
     public void ShowPlayer(int playerId)
     {
-        //if (!fieldsInitialized) InitFields();
-
         playerNames[playerId].SetActive(true);
         playerScores[playerId].SetActive(true);
     }
 
     public void SetPlayerScore(int playerId, int score)
     {
-        //if (!fieldsInitialized) InitFields();
-
         playerScores[playerId].GetComponent<Text>().text = score.ToString();
     }
 }

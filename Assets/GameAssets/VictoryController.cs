@@ -13,11 +13,6 @@ public class VictoryController : MonoBehaviour {
 
     void Awake()
     {
-        if (roundController == null)
-        {
-            // roundController = new MockRoundController(); // TODO
-        }
-
         scoreManager = GetComponent<ScoreManager>();
     }
 

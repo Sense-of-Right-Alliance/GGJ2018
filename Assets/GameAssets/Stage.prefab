@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 198984169363166140}
   - component: {fileID: 199499898254044750}
   - component: {fileID: 114532168667321538}
+  - component: {fileID: 114595726397045138}
   m_Layer: 0
   m_Name: Stage
   m_TagString: Untagged
@@ -52,6 +53,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7a1db4373dad4aa59fd29a730fea6a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitColours:
+  - {r: 0.32413793, g: 1, b: 0, a: 0}
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0.90344834, g: 1, b: 0, a: 0}
+  - {r: 0.07586192, g: 0, b: 1, a: 0}
+--- !u!114 &114595726397045138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1367064584916276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e120f1760820c42fa92abbda3f8fb723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!198 &198984169363166140

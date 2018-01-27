@@ -18,7 +18,7 @@ public class GameSetup : MonoBehaviour {
     };
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         // We're assuming there will always be 4 players, and that some of them may be AI.
         for (int i = 0; i < GameSettings.MAX_PLAYERS; i++) {
             GameObject newStage = Instantiate(StagePrefab, stagePositions[i], Quaternion.identity);
@@ -33,6 +33,7 @@ public class GameSetup : MonoBehaviour {
                     newStage.AddComponent(typeof(NetworkInput));
                 break;
             }
+            newStage.GetComponent<StageManager>().UpdateController();
         }
 	}
 }
