@@ -10,17 +10,29 @@ public class GameSetup : MonoBehaviour {
     [SerializeField]
     private GameObject StagePrefab;
 
+    private Vector3[] stagePositions = new Vector3[] {
+        new Vector3(-STAGE_SPAWN_X, -STAGE_SPAWN_Y, 0.0f),
+        new Vector3(-STAGE_SPAWN_X, STAGE_SPAWN_Y, 0.0f),
+        new Vector3(STAGE_SPAWN_X, -STAGE_SPAWN_Y, 0.0f),
+        new Vector3(STAGE_SPAWN_X, STAGE_SPAWN_Y, 0.0f)
+    };
+
 	// Use this for initialization
 	void Start () {
         // We're assuming there will always be 4 players, and that some of them may be AI.
-        Instantiate(StagePrefab, new Vector3(-STAGE_SPAWN_X, -STAGE_SPAWN_Y, 0.0f), Quaternion.identity);
-        Instantiate(StagePrefab, new Vector3(-STAGE_SPAWN_X, STAGE_SPAWN_Y, 0.0f), Quaternion.identity);
-        Instantiate(StagePrefab, new Vector3(STAGE_SPAWN_X, -STAGE_SPAWN_Y, 0.0f), Quaternion.identity);
-        Instantiate(StagePrefab, new Vector3(STAGE_SPAWN_X, STAGE_SPAWN_Y, 0.0f), Quaternion.identity);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+        for (int i = 0; i < GameSettings.MAX_PLAYERS; i++) {
+            GameObject newStage = Instantiate(StagePrefab, stagePositions[i], Quaternion.identity);
+            switch (GameSettings.PlayerTypes[i]) {
+                case GameSettings.PLAYER_TYPES.HUMAN:
+                    newStage.AddComponent(typeof(HumanInput));
+                    break;
+                case GameSettings.PLAYER_TYPES.AI:
+                    newStage.AddComponent(typeof(AIInput));
+                    break;
+                case GameSettings.PLAYER_TYPES.NETWORKED:
+                    newStage.AddComponent(typeof(NetworkInput));
+                break;
+            }
+        }
 	}
 }

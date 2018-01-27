@@ -35,11 +35,18 @@ public class MenuController : MonoBehaviour {
     private Player[] rewiredPlayers = new Player[GameSettings.MAX_PLAYERS];
     private Player systemPlayer;
 
+    private void ResetPlayers() {
+        for (int i = 0; i < GameSettings.MAX_PLAYERS; i++) {
+            GameSettings.PlayerTypes[i] = GameSettings.PLAYER_TYPES.AI;
+        }
+    }
+
     public void Start() {
         systemPlayer = ReInput.players.GetSystemPlayer();
         for (int i = 0; i < GameSettings.MAX_PLAYERS; i++) {
             rewiredPlayers[i] = ReInput.players.GetPlayer(i);
         }
+        ResetPlayers();
     }
 
     public void Update() {
@@ -126,6 +133,7 @@ public class MenuController : MonoBehaviour {
                 splashCanvas.gameObject.SetActive(true);
                 splashBackgroundCanvas.gameObject.SetActive(true);
                 currentState = MENU_STATE.MAIN_MENU;
+                ResetPlayers();
                 break;
         }
     }

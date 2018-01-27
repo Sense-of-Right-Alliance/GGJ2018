@@ -5,6 +5,12 @@
         DEBUG_LITE = 1, // This is a mode that players can activate to provide additional information such as the version number.
         DEBUG_FULL = 2
     }
+
+    public enum PLAYER_TYPES {
+        HUMAN,
+        AI,
+        NETWORKED
+    }
     
     // Scene Names:
     public const string MAIN_MENU_SCENE = "Init";
@@ -20,4 +26,6 @@
     
     public const int MAX_PLAYERS = 4;  // Currently 4, could be eiiiight
     // TODO-DG: would also have to change Rewired to handle 8
+
+    public static PLAYER_TYPES[] PlayerTypes = new PLAYER_TYPES[MAX_PLAYERS];
 }
