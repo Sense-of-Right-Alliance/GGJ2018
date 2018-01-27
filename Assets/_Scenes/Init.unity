@@ -4679,26 +4679,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114499953374694610, guid: e40fd8c6779f44912b9b5417d2ed31be,
-        type: 2}
-      propertyPath: _userData.keyboardMaps.Array.data[3].actionElementMaps.Array.data[2]._axisContribution
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114499953374694610, guid: e40fd8c6779f44912b9b5417d2ed31be,
-        type: 2}
-      propertyPath: _userData.keyboardMaps.Array.data[3].actionElementMaps.Array.data[1]._axisContribution
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114499953374694610, guid: e40fd8c6779f44912b9b5417d2ed31be,
-        type: 2}
-      propertyPath: _userData.keyboardMaps.Array.data[1].actionElementMaps.Array.data[1]._axisContribution
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114499953374694610, guid: e40fd8c6779f44912b9b5417d2ed31be,
-        type: 2}
-      propertyPath: _userData.keyboardMaps.Array.data[1].actionElementMaps.Array.data[2]._axisContribution
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e40fd8c6779f44912b9b5417d2ed31be, type: 2}
   m_IsPrefabParent: 0

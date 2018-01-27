@@ -53,7 +53,6 @@ public class TeamSelectController : MonoBehaviour {
     }
 
 	void Awake() {
-        float controllerYRatio = 1.0f/NumJoined;
         for (int i = 0; i < GameSettings.MAX_PLAYERS; i++) {
             nesControllerTransforms[i] = Instantiate(nesControllerPrefab).GetComponent<RectTransform>();
             nesControllerTransforms[i].SetParent(controllerHolderTransform);
