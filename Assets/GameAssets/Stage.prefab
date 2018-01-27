@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212243445599318436}
   - component: {fileID: 198984169363166140}
   - component: {fileID: 199499898254044750}
+  - component: {fileID: 114532168667321538}
   m_Layer: 0
   m_Name: Stage
   m_TagString: Untagged
@@ -42,6 +43,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114532168667321538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1367064584916276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a1db4373dad4aa59fd29a730fea6a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198984169363166140
 ParticleSystem:
   m_ObjectHideFlags: 1
