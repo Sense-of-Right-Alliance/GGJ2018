@@ -16,7 +16,8 @@
         ACTION_0 = 0,
         ACTION_1 = 1,
         ACTION_2 = 2,
-        ACTION_3 = 3
+        ACTION_3 = 3,
+        NONE
     }
     public const int NUM_ACTIONS = 4;
     
@@ -39,8 +40,8 @@
     // TODO-DG: would also have to change Rewired to handle 8
 
     public static PLAYER_TYPES[] PlayerTypes = {
-        PLAYER_TYPES.AI,
-        PLAYER_TYPES.AI,
+        PLAYER_TYPES.HUMAN,
+        PLAYER_TYPES.HUMAN,
         PLAYER_TYPES.AI,
         PLAYER_TYPES.AI
     };

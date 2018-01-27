@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Rewired;
+
 public class GameSetup : MonoBehaviour {
 
     private const float STAGE_SPAWN_X = 0.3f;
@@ -19,12 +21,14 @@ public class GameSetup : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-        // We're assuming there will always be 4 players, and that some of them may be AI.
+        int reWiredIndex = 0;
         for (int i = 0; i < GameSettings.MAX_PLAYERS; i++) {
             GameObject newStage = Instantiate(StagePrefab, stagePositions[i], Quaternion.identity);
             switch (GameSettings.PlayerTypes[i]) {
                 case GameSettings.PLAYER_TYPES.HUMAN:
                     newStage.AddComponent(typeof(HumanInput));
+                    HumanInput newInput = newStage.GetComponent<HumanInput>();
+                    newInput.SetPlayer(ReInput.players.GetPlayer(reWiredIndex++));
                     break;
                 case GameSettings.PLAYER_TYPES.AI:
                     newStage.AddComponent(typeof(AIInput));

@@ -74,7 +74,6 @@ public class TeamSelectController : MonoBehaviour {
                 } else {
                     if (rewiredPlayers[i].GetButtonDown(GameSettings.REWIRED_MAIN_BTN)) {
                         if (!isJoined[i]) {
-                            Debug.Log("Join!");
                             isJoined[i] = true;
                             nesControllerTransforms[i].gameObject.SetActive(true);
                             changed = true;
