@@ -49,6 +49,7 @@ public class TeamSelectController : MonoBehaviour {
         startCooldown = 0.0f;
 		for (int i = 0; i < GameSettings.MAX_PLAYERS; i++) {
             rewiredPlayers[i] = ReInput.players.GetPlayer(i);
+            isJoined[i] = false;
         }
     }
 
