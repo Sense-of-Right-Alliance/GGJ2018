@@ -46,7 +46,7 @@ public class VictoryController : MonoBehaviour {
             };
 
             Time.timeScale = 0.0f;
-            scoreManager.GetComponent<ScoreManager>().ShowScores(myDict);
+            scoreManager.ShowScores(myDict);
         }
     }
 }
