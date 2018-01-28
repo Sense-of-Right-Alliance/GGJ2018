@@ -5,26 +5,26 @@ using System.Linq;
 
 public class Tastes
 {
-    public float FluteDesire { get; set; }
-    public float BassDesire { get; set; }
-    public float DrumDesire { get; set; }
-    public float TrumpetDesire { get; set; }
+    public int FluteDesire { get; set; }
+    public int BassDesire { get; set; }
+    public int DrumDesire { get; set; }
+    public int TrumpetDesire { get; set; }
 
     public Tastes(GameSettings.FAN_TYPE fanType)
     {
         switch (fanType)
         {
             case GameSettings.FAN_TYPE.FLUTE:
-                FluteDesire = 1;
+                FluteDesire = 100;
                 break;
             case GameSettings.FAN_TYPE.BASS:
-                BassDesire = 1;
+                BassDesire = 100;
                 break;
             case GameSettings.FAN_TYPE.DRUM:
-                DrumDesire = 1;
+                DrumDesire = 100;
                 break;
             case GameSettings.FAN_TYPE.TRUMPET:
-                TrumpetDesire = 1;
+                TrumpetDesire = 100;
                 break;
         }
     }
@@ -42,12 +42,12 @@ public class Tastes
             return GameSettings.STAGE.NONE;
         }
 
-        return bestStages.OrderBy(kvp => Random.Range(0, 1)) // order the stages randomly
+        return bestStages.OrderBy(kvp => Random.Range(0, 1000)) // order the stages randomly
                          .Select(kvp => kvp.Key) // select the enum
                          .First(); // take the first one
     }
 
-    private float CalculateStageScore(StageManager stage)
+    private int CalculateStageScore(StageManager stage)
     {
         switch (stage.CurrentInstrument)
         {
