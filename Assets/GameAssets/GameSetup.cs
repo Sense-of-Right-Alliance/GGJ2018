@@ -15,7 +15,7 @@ public class GameSetup : MonoBehaviour {
     [SerializeField]
     private GameObject StagePrefab;
 
-    private RoundController _roundController;
+    private FanController _fanController;
 
     private Vector3[] stagePositions = new Vector3[] {
         new Vector3(-STAGE_SPAWN_X, STAGE_SPAWN_Y, 0.0f),
@@ -33,7 +33,7 @@ public class GameSetup : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-        _roundController = GetComponent<RoundController>();
+	    _fanController = GetComponent<FanController>();
 
         int reWiredIndex = 0;
         for (int i = 0; i < GameSettings.MAX_PLAYERS; i++) {
@@ -57,7 +57,7 @@ public class GameSetup : MonoBehaviour {
             }
             newStage.GetComponent<StageManager>().UpdateController();
 
-            _roundController.Stages.Add((GameSettings.STAGE)i, newStage.GetComponent<StageManager>());
+            _fanController.Stages.Add((GameSettings.STAGE)i, newStage.GetComponent<StageManager>());
         }
 	}
 }

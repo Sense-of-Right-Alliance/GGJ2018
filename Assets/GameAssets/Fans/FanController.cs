@@ -19,6 +19,9 @@ public class FanController : MonoBehaviour {
     Vector3 spawnPosition;
     Vector3 crowdCenterPosition;
 
+    private Dictionary<GameSettings.STAGE, StageManager> _stages = new Dictionary<GameSettings.STAGE, StageManager>();
+    public Dictionary<GameSettings.STAGE, StageManager> Stages { get { return _stages; } }
+
     List<GameObject> fans = new List<GameObject>();
 
     Dictionary<int, GameObject> playerFans = new Dictionary<int, GameObject>();
@@ -31,10 +34,10 @@ public class FanController : MonoBehaviour {
         crowdCenterPosition = (crowdCenterTransform == null) ? Vector3.zero : crowdCenterTransform.position;
 
         fanFabs = new GameObject[4];
-        fanFabs[0] = bassFanPrefab;
-        fanFabs[1] = drumFanPrefab;
-        fanFabs[2] = fluteFanPrefab;
-        fanFabs[3] = trumpetFanPrefab;
+	    fanFabs[0] = bassFanPrefab;
+	    fanFabs[1] = drumFanPrefab;
+	    fanFabs[2] = fluteFanPrefab;
+	    fanFabs[3] = trumpetFanPrefab;
 
         RoundController.OnRoundChange += HandleRoundChange;
         RoundController.OnFirstRoundStart += HandleRoundStart;
