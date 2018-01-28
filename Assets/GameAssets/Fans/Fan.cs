@@ -5,6 +5,8 @@ using UnityEngine;
 public class Fan : MonoBehaviour {
     [SerializeField]
     float moveSpeed = 1.0f;
+    [SerializeField]
+    Animator spriteAnimator;
 
     bool delaying = false;
     float delayTimer = 0.0f;
@@ -59,7 +61,9 @@ public class Fan : MonoBehaviour {
 		else if (moving) {
             UpdateMoving();
         }
-	}
+
+        spriteAnimator.SetFloat("Speed", moving ? moveSpeed * 100.0f : 0.0f);
+    }
 
     void UpdateMoving() {
         moveT += Time.deltaTime * lerpSpeed;
