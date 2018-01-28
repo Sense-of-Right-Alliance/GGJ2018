@@ -29,7 +29,7 @@ public class StageManager : MonoBehaviour {
 
     void OnDestroy()
     {
-        RoundController.OnRoundChange -= HandleRoundChange;
+        RoundController.OnRoundChangeEarly -= HandleRoundChange;
     }
 
     void HandleRoundChange() {
