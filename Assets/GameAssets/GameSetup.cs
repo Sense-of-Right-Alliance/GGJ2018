@@ -32,6 +32,9 @@ public class GameSetup : MonoBehaviour {
         new Vector3(-TEXT_DIST_X, 0.0f, 0.0f),
     };
 
+    [SerializeField]
+    private MusicController musicController;
+
 	// Use this for initialization
 	void Awake () {
 	    _fanController = GetComponent<FanController>();
@@ -43,8 +46,7 @@ public class GameSetup : MonoBehaviour {
             playerText.transform.localPosition = textPositions[i];
             switch (GameSettings.PlayerTypes[i]) {
                 case GameSettings.PLAYER_TYPES.HUMAN:
-                    newStage.AddComponent(typeof(HumanInput));
-                    HumanInput newInput = newStage.GetComponent<HumanInput>();
+                    HumanInput newInput = (HumanInput)newStage.AddComponent(typeof(HumanInput));
                     newInput.SetPlayer(ReInput.players.GetPlayer(reWiredIndex++));
                     playerText.text = "P" + reWiredIndex;
                     break;
@@ -55,6 +57,10 @@ public class GameSetup : MonoBehaviour {
                 case GameSettings.PLAYER_TYPES.NETWORKED:
                     newStage.AddComponent(typeof(NetworkInput));
                 break;
+            }
+            ControlAbstractor control = newStage.GetComponent<ControlAbstractor>();
+            if (musicController && control) {
+                musicController.RegisterControl(control);
             }
             newStage.GetComponent<StageManager>().UpdateController();
 
