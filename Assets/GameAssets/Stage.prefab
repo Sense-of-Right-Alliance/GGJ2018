@@ -134,10 +134,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emitColours:
-  - {r: 0.32413793, g: 0.791, b: 0, a: 1}
-  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0.5586207, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0.048275948, a: 1}
   - {r: 0.90344834, g: 1, b: 0, a: 1}
-  - {r: 0.07586192, g: 0, b: 0.697, a: 1}
+  - {r: 0.697, g: 0, b: 0, a: 1}
   crowdCenterTransform: {fileID: 4053575798747198}
 --- !u!114 &114862672567333300
 MonoBehaviour:

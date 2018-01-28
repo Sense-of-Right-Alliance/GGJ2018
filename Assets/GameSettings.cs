@@ -1,4 +1,5 @@
-﻿public static class GameSettings {
+﻿using UnityEngine;
+public static class GameSettings {
 
     public enum DEBUG_STATE {
         RELEASE = 0,
@@ -34,6 +35,13 @@
         TRUMPET = 2,
         FLUTE = 3,
     }
+
+    public static Color[] FanColours = new Color[] {
+        new Color(0.9f, 0.7f, 0.1f, 1.0f),
+        new Color(0.0f, 1.0f, 0.0f, 1.0f),
+        new Color(1.0f, 1.0f, 0.5f, 1.0f),
+        new Color(0.4f, 0.1f, 0.1f, 1.0f)
+    };
 
     public const int NUM_INSTRUMENTS = 4;
     
