@@ -8,8 +8,8 @@ using Rewired;
 public class HumanInput : ControlAbstractor {
 
     private Player mPlayer;
-    private GameSettings.INSTRUMENT_ACTIONS currentAction;
-    private GameSettings.INSTRUMENT_ACTIONS prevAction;
+    private GameSettings.INSTRUMENT currentInstrument;
+    private GameSettings.INSTRUMENT prevInstrument;
 
     private Text playerText;
 
@@ -18,8 +18,8 @@ public class HumanInput : ControlAbstractor {
     private bool flashed = false;
 
     void Start() {
-        prevAction = GameSettings.INSTRUMENT_ACTIONS.NONE;
-        currentAction = GameSettings.INSTRUMENT_ACTIONS.NONE;
+        prevInstrument = GameSettings.INSTRUMENT.NONE;
+        currentInstrument = GameSettings.INSTRUMENT.NONE;
         playerText = GetComponentInChildren<Text>();
     }
 
@@ -27,16 +27,16 @@ public class HumanInput : ControlAbstractor {
         bool pressed = false;
         if (mPlayer != null) {
             if (mPlayer.GetButtonDown(GameSettings.REWIRED_MAIN_BTN)) {
-                currentAction = GameSettings.INSTRUMENT_ACTIONS.ACTION_0;
+                currentInstrument = GameSettings.INSTRUMENT.DRUM;
                 pressed = true;
             } else if (mPlayer.GetButtonDown(GameSettings.REWIRED_SECONDARY_BTN)) {
-                currentAction = GameSettings.INSTRUMENT_ACTIONS.ACTION_1;
+                currentInstrument = GameSettings.INSTRUMENT.BASS;
                 pressed = true;
             } else if (mPlayer.GetButtonDown(GameSettings.REWIRED_THIRD_BTN)) {
-                currentAction = GameSettings.INSTRUMENT_ACTIONS.ACTION_2;
+                currentInstrument = GameSettings.INSTRUMENT.TRUMPET;
                 pressed = true;
             } else if (mPlayer.GetButtonDown(GameSettings.REWIRED_FOURTH_BTN)) {
-                currentAction = GameSettings.INSTRUMENT_ACTIONS.ACTION_3;
+                currentInstrument = GameSettings.INSTRUMENT.FLUTE;
                 pressed = true;
             }
         }
@@ -55,12 +55,12 @@ public class HumanInput : ControlAbstractor {
         }
     }
 
-    public override GameSettings.INSTRUMENT_ACTIONS GetAction() {
-        if (currentAction != GameSettings.INSTRUMENT_ACTIONS.NONE) {
-            prevAction = currentAction;
-            currentAction = GameSettings.INSTRUMENT_ACTIONS.NONE;
+    public override GameSettings.INSTRUMENT GetInstrument() {
+        if (currentInstrument != GameSettings.INSTRUMENT.NONE) {
+            prevInstrument = currentInstrument;
+            currentInstrument = GameSettings.INSTRUMENT.NONE;
         }
-        return prevAction;
+        return prevInstrument;
     }
 
     public void SetPlayer(Player newPlayer) {

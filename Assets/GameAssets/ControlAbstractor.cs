@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ControlAbstractor : MonoBehaviour {
 
-    public virtual GameSettings.INSTRUMENT_ACTIONS GetAction() {
+    public virtual GameSettings.INSTRUMENT GetInstrument() {
         // Needs to be defined in abstracting classes
-        return GameSettings.INSTRUMENT_ACTIONS.ACTION_0;
+        return GameSettings.INSTRUMENT.DRUM;
     }
 }

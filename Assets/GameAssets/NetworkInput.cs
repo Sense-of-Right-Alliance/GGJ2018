@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class NetworkInput : ControlAbstractor {
 
-    private GameSettings.INSTRUMENT_ACTIONS currentAction;
+    private GameSettings.INSTRUMENT currentInstrument;
 
     void Start() {
-        currentAction = (GameSettings.INSTRUMENT_ACTIONS)Random.Range(0, GameSettings.NUM_ACTIONS);
+        currentInstrument = (GameSettings.INSTRUMENT)Random.Range(0, GameSettings.NUM_INSTRUMENTS);
     }
 
-    public override GameSettings.INSTRUMENT_ACTIONS GetAction() {
+    public override GameSettings.INSTRUMENT GetInstrument() {
         // TODO-DG: ha ha ha
 
-        return currentAction;
+        return currentInstrument;
     }
 }
