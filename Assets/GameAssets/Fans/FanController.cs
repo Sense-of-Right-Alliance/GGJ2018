@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class FanController : MonoBehaviour {
     [SerializeField]
-    GameObject fanPrefab;
+    GameObject bassFanPrefab;
+    [SerializeField]
+    GameObject drumFanPrefab;
+    [SerializeField]
+    GameObject fluteFanPrefab;
+    [SerializeField]
+    GameObject trumpetFanPrefab;
     [SerializeField]
     Transform spawnTransform;
     [SerializeField]
@@ -17,20 +23,37 @@ public class FanController : MonoBehaviour {
 
     Dictionary<int, GameObject> playerFans = new Dictionary<int, GameObject>();
 
+    GameObject[] fanFabs;
+
 	// Use this for initialization
 	void Start () {
         spawnPosition = (spawnTransform == null) ? Vector3.zero : spawnTransform.position;
         crowdCenterPosition = (crowdCenterTransform == null) ? Vector3.zero : crowdCenterTransform.position;
+
+        fanFabs = new GameObject[4];
+        fanFabs[0] = bassFanPrefab;
+        fanFabs[1] = drumFanPrefab;
+        fanFabs[2] = fluteFanPrefab;
+        fanFabs[3] = trumpetFanPrefab;
+
+        RoundController.OnRoundChange += HandleRoundChange;
     }
 	
 	// Update is called once per frame
 	void Update () {
         // THIS IS ONLY TO TEST. DON'T WORRY
-		if (Input.GetKeyUp(KeyCode.Space))
+		/*
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             SpawnNewCrowd(10);
         }
+        */
 	}
+
+    void HandleRoundChange()
+    {
+        SpawnNewCrowd(10);
+    }
 
     void SpawnNewCrowd(int crowdSize)
     {
@@ -38,7 +61,8 @@ public class FanController : MonoBehaviour {
         {
             //if (i > fans.Count)
             //{
-                GameObject fan = CreateNewFan();
+
+                GameObject fan = CreateNewFan(fanFabs[Random.Range(0,fanFabs.Length)]);
 
                 fan.transform.position = spawnPosition;
 
@@ -47,9 +71,9 @@ public class FanController : MonoBehaviour {
         }
     }
 
-    GameObject CreateNewFan()
+    GameObject CreateNewFan(GameObject prefab)
     {
-        GameObject newFan = (GameObject)Instantiate(fanPrefab, Vector3.zero, Quaternion.identity);
+        GameObject newFan = (GameObject)Instantiate(prefab, Vector3.zero, Quaternion.identity);
 
         fans.Add(newFan);
 
