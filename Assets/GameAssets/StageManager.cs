@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class StageManager : MonoBehaviour {
 
+    private const float PARTICLE_ALPHA_START = 1.0f;
+    private const float PARTICLE_ALPHA_END = 0.7f;
+
     [SerializeField]
     private Color[] emitColours = new Color[GameSettings.NUM_INSTRUMENTS];
     [SerializeField]
@@ -35,7 +38,11 @@ public class StageManager : MonoBehaviour {
         if (newInstrument != CurrentInstrument && newInstrument != GameSettings.INSTRUMENT.NONE) {
             var col = mParticle.colorOverLifetime;
             Gradient grad = new Gradient();
-            grad.SetKeys( new GradientColorKey[] { new GradientColorKey(emitColours[(int)newInstrument], 0.0f), new GradientColorKey(emitColours[(int)newInstrument], 1.0f)}, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.05f, 1.0f) } );
+            float endAlpha = PARTICLE_ALPHA_END;
+            if (emitColours[(int)newInstrument].r > 0.8) {
+                endAlpha = 1.0f;
+            }
+            grad.SetKeys( new GradientColorKey[] { new GradientColorKey(emitColours[(int)newInstrument], 0.0f), new GradientColorKey(emitColours[(int)newInstrument], 1.0f)}, new GradientAlphaKey[] { new GradientAlphaKey(PARTICLE_ALPHA_START, 0.0f), new GradientAlphaKey(endAlpha, 1.0f) } );
             col.color = grad;
             CurrentInstrument = newInstrument;
         }

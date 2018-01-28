@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 222811450376408028}
   - component: {fileID: 114862672567333300}
   - component: {fileID: 114318704987965648}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 224822312993629234}
   - component: {fileID: 223926409386993918}
   - component: {fileID: 222833138261426674}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TextCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,10 +134,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emitColours:
-  - {r: 0.32413793, g: 1, b: 0, a: 0}
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 0.90344834, g: 1, b: 0, a: 0}
-  - {r: 0.07586192, g: 0, b: 1, a: 0}
+  - {r: 0.32413793, g: 0.791, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0.90344834, g: 1, b: 0, a: 1}
+  - {r: 0.07586192, g: 0, b: 0.697, a: 1}
   crowdCenterTransform: {fileID: 4053575798747198}
 --- !u!114 &114862672567333300
 MonoBehaviour:
@@ -878,7 +878,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 7
+      scalar: 5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
