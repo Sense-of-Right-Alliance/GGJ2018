@@ -26,6 +26,8 @@ public class Fan : MonoBehaviour {
 	    tastes = new Tastes(fanType);
     }
 
+    public GameSettings.STAGE PickStage(Dictionary<GameSettings.STAGE, StageManager> stages) { return tastes.PickStage(stages); }
+
     public void MoveTo(Vector3 pos, float delay)
     {
         startPos = transform.position;

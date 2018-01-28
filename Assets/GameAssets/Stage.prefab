@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1367064584916276}
   m_IsPrefabParent: 1
+--- !u!1 &1044592040360424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4053575798747198}
+  m_Layer: 0
+  m_Name: CrowdCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1367064584916276
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,6 +80,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4053575798747198
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1044592040360424}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4161292600273218}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4161292600273218
 Transform:
   m_ObjectHideFlags: 1
@@ -72,10 +100,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1367064584916276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.143, y: -0.078, z: 0}
+  m_LocalPosition: {x: -0.11827013, y: -0.10543511, z: 8.818237}
   m_LocalScale: {x: 0.017813157, y: 0.017813157, z: 0.017813157}
   m_Children:
   - {fileID: 224822312993629234}
+  - {fileID: 4053575798747198}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -109,6 +138,7 @@ MonoBehaviour:
   - {r: 1, g: 0, b: 0, a: 0}
   - {r: 0.90344834, g: 1, b: 0, a: 0}
   - {r: 0.07586192, g: 0, b: 1, a: 0}
+  crowdCenterTransform: {fileID: 4053575798747198}
 --- !u!114 &114862672567333300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,7 +232,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1886405634
+  randomSeed: 1602534062
   InitialModule:
     serializedVersion: 3
     enabled: 1

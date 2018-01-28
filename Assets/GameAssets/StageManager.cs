@@ -6,9 +6,13 @@ public class StageManager : MonoBehaviour {
 
     [SerializeField]
     private Color[] emitColours = new Color[GameSettings.NUM_INSTRUMENTS];
+    [SerializeField]
+    Transform crowdCenterTransform;
 
     private ControlAbstractor mController;
     private ParticleSystem mParticle;
+
+    Vector3 crowdCenterPosition;
 
     public GameSettings.INSTRUMENT CurrentInstrument { get; private set; }
 
@@ -16,6 +20,8 @@ public class StageManager : MonoBehaviour {
         CurrentInstrument = GameSettings.INSTRUMENT.NONE;
         RoundController.OnRoundChange += HandleRoundChange;
         mParticle = GetComponent<ParticleSystem>();
+
+        crowdCenterPosition = crowdCenterTransform == null ? Vector3.zero : crowdCenterTransform.position;
     }
 
     void OnDestroy()
@@ -37,5 +43,18 @@ public class StageManager : MonoBehaviour {
 
     public void UpdateController() {
         mController = GetComponent<ControlAbstractor>();
+    }
+
+    public Vector3 GetCrowdPosition()
+    {
+        Vector3 pos = crowdCenterPosition;
+
+        float range = 0.15f;
+
+        // To Do: Distribute position so the crowd is spread out and fans are not overlapping one another
+        pos.x += Random.Range(-range / 2.0f, range / 2.0f);
+        pos.y += Random.Range(-range / 2.0f, range / 2.0f);
+
+        return pos;
     }
 }
