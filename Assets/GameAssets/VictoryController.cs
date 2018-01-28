@@ -18,7 +18,6 @@ public class VictoryController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Debug.Log("Starting Victory");
         RoundController.OnRoundChange += HandleRoundChanged;
     }
     
