@@ -15,7 +15,15 @@ public class GameSetup : MonoBehaviour {
     //private const float TEXT_DIST_X = 5.0f;
 
     [SerializeField]
-    private GameObject StagePrefab;
+    private GameObject Stage1Prefab;
+    [SerializeField]
+    private GameObject Stage2Prefab;
+    [SerializeField]
+    private GameObject Stage3Prefab;
+    [SerializeField]
+    private GameObject Stage4Prefab;
+
+    GameObject[] stageFabs;
 
     private FanController _fanController;
 
@@ -40,9 +48,15 @@ public class GameSetup : MonoBehaviour {
 	void Awake () {
 	    _fanController = GetComponent<FanController>();
 
+        stageFabs = new GameObject[4];
+        stageFabs[0] = Stage1Prefab;
+        stageFabs[1] = Stage2Prefab;
+        stageFabs[2] = Stage3Prefab;
+        stageFabs[3] = Stage4Prefab;
+
         int reWiredIndex = 0;
         for (int i = 0; i < Math.Min(GameSettings.MAX_PLAYERS, GameSettings.PlayerTypes.Length); i++) {
-            GameObject newStage = Instantiate(StagePrefab, stagePositions[i], Quaternion.identity);
+            GameObject newStage = Instantiate(stageFabs[i % stageFabs.Length], stagePositions[i], Quaternion.identity);
             Text playerText = newStage.GetComponentInChildren<Text>();
             switch (GameSettings.PlayerTypes[i]) {
                 case GameSettings.PLAYER_TYPES.HUMAN:

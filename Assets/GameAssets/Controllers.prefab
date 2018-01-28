@@ -364,6 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundController: {fileID: 114644641361180932}
+  fanController: {fileID: 0}
   numRounds: 6
 --- !u!114 &114143449850207564
 MonoBehaviour:
@@ -937,6 +938,7 @@ MonoBehaviour:
     type: 2}
   spawnTransform: {fileID: 0}
   crowdCenterTransform: {fileID: 0}
+  crowdSpread: 1
 --- !u!114 &114644641361180932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1113,8 +1115,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa875331ad442482ba5ceca7f62ff578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StagePrefab: {fileID: 1367064584916276, guid: aff4f6325d9ec44f9bd945273810199b,
+  Stage1Prefab: {fileID: 1056209250818360, guid: 3b7cff5892f1da540b29acc9615a242b,
     type: 2}
+  Stage2Prefab: {fileID: 1056209250818360, guid: 83f28a240a05c8946bfcab5a5ca6f3bd,
+    type: 2}
+  Stage3Prefab: {fileID: 1056209250818360, guid: d6506c7e63466b549be4dd960a5e2037,
+    type: 2}
+  Stage4Prefab: {fileID: 1056209250818360, guid: 29b39f2d3e83e7b4dba8ef7d27b2517e,
+    type: 2}
+  musicController: {fileID: 0}
 --- !u!114 &114922701411258648
 MonoBehaviour:
   m_ObjectHideFlags: 1
