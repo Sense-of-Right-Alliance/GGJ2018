@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RoundController : MonoBehaviour {
+public class RoundController : MonoBehaviour
+{
     public delegate void RoundAction();
     public static event RoundAction OnRoundChange;
 
@@ -25,7 +26,8 @@ public class RoundController : MonoBehaviour {
     bool starting = false;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         startDelayTimer = startDelay;
         starting = true;
 
@@ -39,7 +41,8 @@ public class RoundController : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update()
+    {
         if (starting)
         {
             startDelayTimer -= Time.deltaTime;
@@ -48,7 +51,8 @@ public class RoundController : MonoBehaviour {
                 starting = false;
                 BeginRoundTimer();
             }
-        } else
+        }
+        else
         {
             UpdateRoundTimer();
 
@@ -57,9 +61,6 @@ public class RoundController : MonoBehaviour {
                 UpdateTimerAnimation();
             }
         }
-        
-
-       
     }
 
     void UpdateRoundTimer()
@@ -103,8 +104,10 @@ public class RoundController : MonoBehaviour {
         timerText.GetComponent<RectTransform>().localScale = newScale;
     }
 
-    void ChangeRound() {
-        if (OnRoundChange != null) {
+    void ChangeRound()
+    {
+        if (OnRoundChange != null)
+        {
             OnRoundChange();
         }
 

@@ -12,14 +12,14 @@
         NETWORKED
     }
 
-    public enum INSTRUMENT_ACTIONS {
-        ACTION_0 = 0,
-        ACTION_1 = 1,
-        ACTION_2 = 2,
-        ACTION_3 = 3,
+    public enum INSTRUMENT {
+        DRUM = 0,
+        BASS = 1,
+        TRUMPET = 2,
+        FLUTE = 3,
         NONE
     }
-    public const int NUM_ACTIONS = 4;
+    public const int NUM_INSTRUMENTS = 4;
     
     // Scene Names:
     public const string MAIN_MENU_SCENE = "Init";
