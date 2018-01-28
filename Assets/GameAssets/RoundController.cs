@@ -25,6 +25,9 @@ public class RoundController : MonoBehaviour
     float startDelayTimer = 0.0f;
     bool starting = false;
 
+    private Dictionary<GameSettings.STAGE, StageManager> _stages = new Dictionary<GameSettings.STAGE, StageManager>();
+    public Dictionary<GameSettings.STAGE, StageManager> Stages { get { return _stages; } }
+
     // Use this for initialization
     void Start()
     {
