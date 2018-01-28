@@ -18,7 +18,7 @@ public class StageManager : MonoBehaviour {
 
     void Start () {
         CurrentInstrument = GameSettings.INSTRUMENT.NONE;
-        RoundController.OnRoundChange += HandleRoundChange;
+        RoundController.OnRoundChangeEarly += HandleRoundChange;
         mParticle = GetComponent<ParticleSystem>();
 
         crowdCenterPosition = crowdCenterTransform == null ? Vector3.zero : crowdCenterTransform.position;
@@ -26,7 +26,7 @@ public class StageManager : MonoBehaviour {
 
     void OnDestroy()
     {
-        RoundController.OnRoundChange -= HandleRoundChange;
+        RoundController.OnRoundChangeEarly -= HandleRoundChange;
     }
 
     void HandleRoundChange() {

@@ -31,7 +31,7 @@ public class FanController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        spawnPosition = (spawnTransform == null) ? Vector3.zero : spawnTransform.position;
+        spawnPosition = (spawnTransform == null) ? new Vector3(0.0f, -0.5f, 0.0f) : spawnTransform.position;
         crowdCenterPosition = (crowdCenterTransform == null) ? Vector3.zero : crowdCenterTransform.position;
 
         fanFabs = new GameObject[4];
@@ -48,9 +48,18 @@ public class FanController : MonoBehaviour {
         RoundController.OnRoundChange += HandleRoundChange;
         RoundController.OnFirstRoundStart += HandleRoundStart;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void OnDestroy()
+    {
+        RoundController.OnRoundChange -= HandleRoundChange;
+        RoundController.OnFirstRoundStart -= HandleRoundStart;
+
+        fans.Clear();
+        stageFans.Clear();
+    }
+
+    // Update is called once per frame
+    void Update () {
 
 	}
 
@@ -61,7 +70,7 @@ public class FanController : MonoBehaviour {
 
     void HandleRoundChange()
     {
-        SelectStages();
+        if (fans.Count > 0) { SelectStages(); }
         SpawnNewCrowd(10);
     }
 

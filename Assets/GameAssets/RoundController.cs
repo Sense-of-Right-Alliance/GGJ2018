@@ -7,6 +7,7 @@ public class RoundController : MonoBehaviour
 {
     public delegate void RoundAction();
     public static event RoundAction OnRoundChange;
+    public static event RoundAction OnRoundChangeEarly;
 
     public static event RoundAction OnFirstRoundStart;
 
@@ -110,6 +111,10 @@ public class RoundController : MonoBehaviour
 
     void ChangeRound()
     {
+        if (OnRoundChangeEarly != null)
+        {
+            OnRoundChangeEarly();
+        }
         if (OnRoundChange != null)
         {
             OnRoundChange();
