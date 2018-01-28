@@ -13,6 +13,9 @@ public class RoundController : MonoBehaviour
 
     [SerializeField]
     private float roundTime = 5.0f;
+    public float RoundTime {
+        set {roundTime = value;}
+    }
     [SerializeField]
     private float startDelay = 2.0f;
     [SerializeField]
@@ -121,5 +124,9 @@ public class RoundController : MonoBehaviour
         }
 
         roundTimer = roundTime;
+    }
+
+    public void UpdateRoundTime(float timePerRound) {
+        roundTime = timePerRound;
     }
 }

@@ -5,6 +5,11 @@ using UnityEngine;
 public class MusicController : MonoBehaviour {
 
     [SerializeField]
+    private RoundController rController;
+    [SerializeField]
+    private VictoryController vController;
+
+    [SerializeField]
     private InstrumentArray[] SongData;
     private int songIndex = 0;
     private AudioSource[] audioSources = new AudioSource[GameSettings.NUM_INSTRUMENTS];
@@ -21,6 +26,13 @@ public class MusicController : MonoBehaviour {
             audioSources[i] = (AudioSource)childObj.AddComponent(typeof(AudioSource));
             audioSources[i].clip = SongData[songIndex].mArray[i];
             audioSources[i].Play();
+        }
+        if (!GameSettings.THIRTY_SECONDS && vController) {
+            int numRounds = (int)SongData[songIndex].mArray[0].length / 5;
+            vController.numRounds = numRounds;
+            if (rController) {
+                rController.RoundTime = SongData[songIndex].mArray[0].length / (float)numRounds;
+            }
         }
 
         RoundController.OnRoundChange += HandleRoundChange;

@@ -799,7 +799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.47241378, g: 0, b: 0.5, a: 0.272}
+  m_Color: {r: 0.47241378, g: 0, b: 0.5, a: 0.39215687}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -826,6 +826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundController: {fileID: 0}
+  fanController: {fileID: 0}
   numRounds: 1
 --- !u!114 &114624643204099340
 MonoBehaviour:
