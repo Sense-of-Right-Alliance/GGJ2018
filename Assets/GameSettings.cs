@@ -57,8 +57,8 @@
     public static PLAYER_TYPES[] PlayerTypes = {
         PLAYER_TYPES.HUMAN,
         PLAYER_TYPES.HUMAN,
-        PLAYER_TYPES.AI,
-        PLAYER_TYPES.AI,
+        PLAYER_TYPES.HUMAN,
+        PLAYER_TYPES.HUMAN,
         PLAYER_TYPES.AI,
         PLAYER_TYPES.AI,
         PLAYER_TYPES.AI,
