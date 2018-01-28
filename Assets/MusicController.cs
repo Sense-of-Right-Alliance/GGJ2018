@@ -17,6 +17,7 @@ public class MusicController : MonoBehaviour {
         for (int i = 0; i < GameSettings.NUM_INSTRUMENTS; i++) {
             GameObject childObj = new GameObject();
             childObj.transform.parent = transform;
+            childObj.name = "AudioSource" + i;
             audioSources[i] = (AudioSource)childObj.AddComponent(typeof(AudioSource));
             audioSources[i].clip = SongData[songIndex].mArray[i];
             audioSources[i].Play();

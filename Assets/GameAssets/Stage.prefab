@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1367064584916276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.11827013, y: -0.10543511, z: 8.818237}
+  m_LocalPosition: {x: -2.2794318, y: -1.6873007, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224822312993629234}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 1, y: -1}
+  m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!114 &114532168667321538
 MonoBehaviour:
@@ -160,8 +160,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
-    m_FontStyle: 0
+    m_FontSize: 64
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 72
@@ -232,7 +232,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1975777739
+  randomSeed: -641201070
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1135,8 +1135,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 0.75686276}
-        key2: {r: 0, g: 0, b: 0, a: 0.039215688}
+        key1: {r: 1, g: 1, b: 1, a: 0.5019608}
+        key2: {r: 0, g: 0, b: 0, a: 0.19607843}
         key3: {r: 0, g: 0, b: 0, a: 0.039215688}
         key4: {r: 0, g: 0, b: 0, a: 0.039215688}
         key5: {r: 0, g: 0, b: 0, a: 0.039215688}
@@ -1151,7 +1151,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 13928
-        atime1: 38303
+        atime1: 51964
         atime2: 65446
         atime3: 65446
         atime4: 65446
@@ -3671,15 +3671,15 @@ RectTransform:
   m_GameObject: {fileID: 1566895593201500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_Children: []
   m_Father: {fileID: 224822312993629234}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: 62.916, y: 68.29}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224822312993629234
 RectTransform:
@@ -3697,6 +3697,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.495, y: 1.475}
+  m_AnchoredPosition: {x: 0, y: 1.5}
   m_SizeDelta: {x: 13.758, y: 6.829}
   m_Pivot: {x: 0.5, y: 0.5}

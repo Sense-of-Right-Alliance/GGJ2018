@@ -12,7 +12,7 @@ public class GameSetup : MonoBehaviour {
     private const float STAGE_SPACING = 3f; //0.2f;
     private const float STAGE_SPAWN_Y = 1.2f; //0.2f;
 
-    private const float TEXT_DIST_X = 5.0f;
+    //private const float TEXT_DIST_X = 5.0f;
 
     [SerializeField]
     private GameObject StagePrefab;
@@ -26,12 +26,12 @@ public class GameSetup : MonoBehaviour {
         new Vector3(STAGE_SPACING * 1.5f, STAGE_SPAWN_Y, 0.0f),//new Vector3(-STAGE_SPAWN_X, -STAGE_SPAWN_Y, 0.0f),
     };
 
-    private Vector3[] textPositions = new Vector3[] {
+    /*private Vector3[] textPositions = new Vector3[] {
         new Vector3(-TEXT_DIST_X, 0.0f, 0.0f),
         new Vector3(TEXT_DIST_X, 0.0f, 0.0f),
         new Vector3(TEXT_DIST_X, 0.0f, 0.0f),
         new Vector3(-TEXT_DIST_X, 0.0f, 0.0f),
-    };
+    };*/
 
     [SerializeField]
     private MusicController musicController;
@@ -44,7 +44,6 @@ public class GameSetup : MonoBehaviour {
         for (int i = 0; i < Math.Min(GameSettings.MAX_PLAYERS, GameSettings.PlayerTypes.Length); i++) {
             GameObject newStage = Instantiate(StagePrefab, stagePositions[i], Quaternion.identity);
             Text playerText = newStage.GetComponentInChildren<Text>();
-            playerText.transform.localPosition = textPositions[i];
             switch (GameSettings.PlayerTypes[i]) {
                 case GameSettings.PLAYER_TYPES.HUMAN:
                     HumanInput newInput = (HumanInput)newStage.AddComponent(typeof(HumanInput));
