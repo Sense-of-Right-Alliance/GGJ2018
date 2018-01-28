@@ -13,7 +13,7 @@ public class HumanInput : ControlAbstractor {
 
     private Text playerText;
 
-    private const float FLASH_TEXT = 0.3f;
+    private const float FLASH_TEXT = 0.1f;
     private float flashTime = 0.0f;
     private bool flashed = false;
 
@@ -24,20 +24,20 @@ public class HumanInput : ControlAbstractor {
     }
 
     void Update() {
-        bool pressed = false;
+        Color flashColour = Color.white;
         if (mPlayer != null) {
-            if (mPlayer.GetButtonDown(GameSettings.REWIRED_MAIN_BTN)) {
+            if (mPlayer.GetButton(GameSettings.REWIRED_MAIN_BTN)) {
                 currentInstrument = GameSettings.INSTRUMENT.DRUM;
-                pressed = true;
-            } else if (mPlayer.GetButtonDown(GameSettings.REWIRED_SECONDARY_BTN)) {
+                flashColour = GameSettings.FanColours[(int)GameSettings.INSTRUMENT.DRUM];
+            } else if (mPlayer.GetButton(GameSettings.REWIRED_SECONDARY_BTN)) {
                 currentInstrument = GameSettings.INSTRUMENT.BASS;
-                pressed = true;
-            } else if (mPlayer.GetButtonDown(GameSettings.REWIRED_THIRD_BTN)) {
+                flashColour = GameSettings.FanColours[(int)GameSettings.INSTRUMENT.BASS];
+            } else if (mPlayer.GetButton(GameSettings.REWIRED_THIRD_BTN)) {
                 currentInstrument = GameSettings.INSTRUMENT.TRUMPET;
-                pressed = true;
-            } else if (mPlayer.GetButtonDown(GameSettings.REWIRED_FOURTH_BTN)) {
+                flashColour = GameSettings.FanColours[(int)GameSettings.INSTRUMENT.TRUMPET];
+            } else if (mPlayer.GetButton(GameSettings.REWIRED_FOURTH_BTN)) {
                 currentInstrument = GameSettings.INSTRUMENT.FLUTE;
-                pressed = true;
+                flashColour = GameSettings.FanColours[(int)GameSettings.INSTRUMENT.FLUTE];
             }
         }
         if (flashed) {
@@ -46,12 +46,11 @@ public class HumanInput : ControlAbstractor {
                 flashed = false;
                 playerText.color = Color.white;
             }
-        } else {
-            if (pressed) {
-                flashed = true;
-                playerText.color = new Color(1.0f, 0.5f, 0.0f);
-                flashTime = 0.0f;
-            }
+        }
+        if (flashColour != Color.white) {
+            flashed = true;
+            playerText.color = flashColour;
+            flashTime = 0.0f;
         }
     }
 
