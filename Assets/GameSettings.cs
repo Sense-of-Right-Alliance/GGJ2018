@@ -27,6 +27,14 @@
         FLUTE = 3,
         NONE
     }
+
+    public enum FAN_TYPE {
+        DRUM = 0,
+        BASS = 1,
+        TRUMPET = 2,
+        FLUTE = 3,
+    }
+
     public const int NUM_INSTRUMENTS = 4;
     
     // Scene Names:

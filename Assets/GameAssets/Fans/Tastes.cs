@@ -10,18 +10,25 @@ public class Tastes
     public float DrumDesire { get; set; }
     public float TrumpetDesire { get; set; }
 
-    private Tastes(float fluteDesire, float bassDesire, float drumDesire, float trumpetDesire)
+    public Tastes(GameSettings.FAN_TYPE fanType)
     {
-        FluteDesire = fluteDesire;
-        BassDesire = bassDesire;
-        DrumDesire = drumDesire;
-        TrumpetDesire = trumpetDesire;
+        switch (fanType)
+        {
+            case GameSettings.FAN_TYPE.FLUTE:
+                FluteDesire = 1;
+                break;
+            case GameSettings.FAN_TYPE.BASS:
+                BassDesire = 1;
+                break;
+            case GameSettings.FAN_TYPE.DRUM:
+                DrumDesire = 1;
+                break;
+            case GameSettings.FAN_TYPE.TRUMPET:
+                TrumpetDesire = 1;
+                break;
+        }
     }
-
-    public Tastes GetFluteTastes() { return new Tastes(1, 0, 0, 0); }
-    public Tastes GetBassTastes() { return new Tastes(0, 1, 0, 0); }
-    public Tastes GetDrumTastes() { return new Tastes(0, 0, 1, 0); }
-    public Tastes GetTrumpetTastes() { return new Tastes(0, 0, 0, 1); }
+    
 
     public GameSettings.STAGE PickStage(Dictionary<GameSettings.STAGE, StageManager> stages)
     {
@@ -45,7 +52,6 @@ public class Tastes
                 return TrumpetDesire;
             case GameSettings.INSTRUMENT.FLUTE:
                 return FluteDesire;
-            case GameSettings.INSTRUMENT.NONE:
             default:
                 return 0;
         }

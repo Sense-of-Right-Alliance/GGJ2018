@@ -7,6 +7,10 @@ public class Fan : MonoBehaviour {
     float moveSpeed = 1.0f;
     [SerializeField]
     Animator spriteAnimator;
+    [SerializeField]
+    GameSettings.FAN_TYPE fanType;
+
+    Tastes tastes;
 
     bool delaying = false;
     float delayTimer = 0.0f;
@@ -19,8 +23,8 @@ public class Fan : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+	    tastes = new Tastes(fanType);
+    }
 
     public void MoveTo(Vector3 pos, float delay)
     {

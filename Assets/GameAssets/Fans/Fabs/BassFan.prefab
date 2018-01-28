@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   spriteAnimator: {fileID: 95747839927459954}
+  fanType: 1
 --- !u!212 &212884862905447784
 SpriteRenderer:
   m_ObjectHideFlags: 1
