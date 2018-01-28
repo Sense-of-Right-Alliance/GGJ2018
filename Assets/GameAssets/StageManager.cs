@@ -23,7 +23,6 @@ public class StageManager : MonoBehaviour {
     }
 
     void HandleRoundChange() {
-        Debug.Log("HandleRoundChange?");
         // Use our thing to thing
         GameSettings.INSTRUMENT_ACTIONS newAction = mController.GetAction();
         //mParticle.startColor = emitColours[(int)newAction];

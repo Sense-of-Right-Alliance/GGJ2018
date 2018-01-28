@@ -8,14 +8,36 @@ public class HumanInput : ControlAbstractor {
 
     private Player mPlayer;
     private GameSettings.INSTRUMENT_ACTIONS currentAction;
+    private GameSettings.INSTRUMENT_ACTIONS prevAction;
 
     void Start() {
-        currentAction = (GameSettings.INSTRUMENT_ACTIONS)Random.Range(0, GameSettings.NUM_ACTIONS);
+        prevAction = GameSettings.INSTRUMENT_ACTIONS.NONE;
+        currentAction = GameSettings.INSTRUMENT_ACTIONS.NONE;
+    }
+
+    void Update() {
+        if (mPlayer != null) {
+            if (mPlayer.GetButtonDown(GameSettings.REWIRED_MAIN_BTN)) {
+                currentAction = GameSettings.INSTRUMENT_ACTIONS.ACTION_0;
+            } else if (mPlayer.GetButtonDown(GameSettings.REWIRED_SECONDARY_BTN)) {
+                currentAction = GameSettings.INSTRUMENT_ACTIONS.ACTION_1;
+            } else if (mPlayer.GetButtonDown(GameSettings.REWIRED_THIRD_BTN)) {
+                currentAction = GameSettings.INSTRUMENT_ACTIONS.ACTION_2;
+            } else if (mPlayer.GetButtonDown(GameSettings.REWIRED_FOURTH_BTN)) {
+                currentAction = GameSettings.INSTRUMENT_ACTIONS.ACTION_3;
+            }
+        }
     }
 
     public override GameSettings.INSTRUMENT_ACTIONS GetAction() {
-        // TODO-DG: Get our input from ReWired
+        if (currentAction != GameSettings.INSTRUMENT_ACTIONS.NONE) {
+            prevAction = currentAction;
+            currentAction = GameSettings.INSTRUMENT_ACTIONS.NONE;
+        }
+        return prevAction;
+    }
 
-        return currentAction;
+    public void SetPlayer(Player newPlayer) {
+        mPlayer = newPlayer;
     }
 }
