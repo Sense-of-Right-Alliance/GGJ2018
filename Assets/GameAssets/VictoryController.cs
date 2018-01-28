@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class VictoryController : MonoBehaviour {
 
+    public static event RoundController.RoundAction OnGameEnd;
+
     ScoreManager scoreManager;
 
     public RoundController roundController;
@@ -11,6 +13,8 @@ public class VictoryController : MonoBehaviour {
     public int numRounds = 6;
 
     private int roundCount = 0;
+
+    public bool IsLastRound { get { return roundCount == numRounds-1; } }
 
     void Awake()
     {
@@ -49,14 +53,10 @@ public class VictoryController : MonoBehaviour {
                 scores[(int)stage.Key] = stage.Value.Count;
             }
 
-            /*
-            Dictionary<int, int> myDict = new Dictionary<int, int>
+            if (OnGameEnd != null)
             {
-                { 1, 100 },
-                { 2, 16 },
-                { 3, 5 }
-            };
-            */
+                OnGameEnd();
+            }
 
             Time.timeScale = 0.0f;
             scoreManager.ShowScores(scores);

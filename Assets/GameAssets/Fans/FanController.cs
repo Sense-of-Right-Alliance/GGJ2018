@@ -17,6 +17,8 @@ public class FanController : MonoBehaviour {
     Transform spawnTransform;
     [SerializeField]
     Transform crowdCenterTransform;
+    [SerializeField]
+    VictoryController victoryController;
 
     [SerializeField]
     float crowdSpread = 1.0f;
@@ -51,6 +53,11 @@ public class FanController : MonoBehaviour {
 
         RoundController.OnRoundChange += HandleRoundChange;
         RoundController.OnFirstRoundStart += HandleRoundStart;
+
+        if (victoryController == null)
+        {
+            victoryController = GetComponent<VictoryController>();
+        }
     }
 
     private void OnDestroy()
@@ -75,7 +82,10 @@ public class FanController : MonoBehaviour {
     void HandleRoundChange()
     {
         if (fans.Count > 0) { SelectStages(); }
-        SpawnNewCrowd(10);
+        if (!victoryController.IsLastRound)
+        {
+            SpawnNewCrowd(10);
+        }
     }
 
     void SelectStages()

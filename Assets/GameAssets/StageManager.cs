@@ -9,6 +9,8 @@ public class StageManager : MonoBehaviour {
 
     [SerializeField]
     Transform crowdCenterTransform;
+    [SerializeField]
+    GameObject[] kings;
 
     private ControlAbstractor mController;
     private ParticleSystem mParticle;
@@ -23,6 +25,11 @@ public class StageManager : MonoBehaviour {
         mParticle = GetComponent<ParticleSystem>();
 
         crowdCenterPosition = crowdCenterTransform == null ? Vector3.zero : crowdCenterTransform.position;
+
+        for (int i = 0; i < kings.Length; i++)
+        {
+            kings[i].SetActive(false);
+        }
     }
 
     void OnDestroy()
@@ -44,7 +51,15 @@ public class StageManager : MonoBehaviour {
             } );
             col.color = grad;
             CurrentInstrument = newInstrument;
+
+            for (int i = 0; i < kings.Length; i++)
+            {
+                kings[i].SetActive(false);
+            }
+            kings[(int)newInstrument].SetActive(true);
         }
+
+        
     }
 
     public void UpdateController() {
