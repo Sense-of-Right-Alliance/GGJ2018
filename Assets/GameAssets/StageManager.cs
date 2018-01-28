@@ -24,8 +24,7 @@ public class StageManager : MonoBehaviour {
         crowdCenterPosition = crowdCenterTransform == null ? Vector3.zero : crowdCenterTransform.position;
     }
 
-    void OnDestroy()
-    {
+    void OnDestroy() {
         RoundController.OnRoundChangeEarly -= HandleRoundChange;
     }
 
@@ -49,7 +48,7 @@ public class StageManager : MonoBehaviour {
     {
         Vector3 pos = crowdCenterPosition;
 
-        float range = 0.15f;
+        float range = 0.8f;
 
         // To Do: Distribute position so the crowd is spread out and fans are not overlapping one another
         pos.x += Random.Range(-range / 2.0f, range / 2.0f);

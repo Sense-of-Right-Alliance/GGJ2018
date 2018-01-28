@@ -18,6 +18,9 @@ public class FanController : MonoBehaviour {
     [SerializeField]
     Transform crowdCenterTransform;
 
+    [SerializeField]
+    float crowdSpread = 1.0f;
+
     Vector3 spawnPosition;
     Vector3 crowdCenterPosition;
 
@@ -25,14 +28,15 @@ public class FanController : MonoBehaviour {
     public Dictionary<GameSettings.STAGE, StageManager> Stages { get { return _stages; } }
 
     List<GameObject> fans = new List<GameObject>();
-    Dictionary<GameSettings.STAGE, List<GameObject>> stageFans = new Dictionary<GameSettings.STAGE, List<GameObject>>();
+    Dictionary<GameSettings.STAGE, List<GameObject>> _stageFans = new Dictionary<GameSettings.STAGE, List<GameObject>>();
+    public Dictionary<GameSettings.STAGE, List<GameObject>> StageFans { get { return _stageFans; } }
 
     GameObject[] fanFabs;
 
 	// Use this for initialization
 	void Start () {
-        spawnPosition = (spawnTransform == null) ? new Vector3(0.0f, -0.5f, 0.0f) : spawnTransform.position;
-        crowdCenterPosition = (crowdCenterTransform == null) ? Vector3.zero : crowdCenterTransform.position;
+        spawnPosition = (spawnTransform == null) ? new Vector3(0.0f, -3.88f, 0.0f) : spawnTransform.position;
+        crowdCenterPosition = (crowdCenterTransform == null) ? new Vector3(0.0f, -0.91f, 0.0f) : crowdCenterTransform.position;
 
         fanFabs = new GameObject[4];
 	    fanFabs[0] = drumFanPrefab;
@@ -42,7 +46,7 @@ public class FanController : MonoBehaviour {
 
 	    foreach (var stageType in Stages.Keys) // initalize stageFans dictionary
         {
-            stageFans[stageType] = new List<GameObject>();
+            _stageFans[stageType] = new List<GameObject>();
 	    }
 
         RoundController.OnRoundChange += HandleRoundChange;
@@ -55,13 +59,13 @@ public class FanController : MonoBehaviour {
         RoundController.OnFirstRoundStart -= HandleRoundStart;
 
         fans.Clear();
-        stageFans.Clear();
+        _stageFans.Clear();
     }
 
     // Update is called once per frame
     void Update () {
 
-	}
+    }
 
     void HandleRoundStart()
     {
@@ -87,7 +91,7 @@ public class FanController : MonoBehaviour {
                 fan.MoveTo(stage.GetCrowdPosition(), i++ * 0.06f);
 
                 fans.Remove(fanObject);
-                stageFans[stageType].Add(fanObject);
+                _stageFans[stageType].Add(fanObject);
             }
         }
     }
@@ -121,11 +125,9 @@ public class FanController : MonoBehaviour {
     {
         Vector3 pos = crowdCenterPosition;
 
-        float range = 0.15f;
-
         // To Do: Distribute position so the crowd is spread out and fans are not overlapping one another
-        pos.x += UnityEngine.Random.Range(-range / 2.0f, range / 2.0f);
-        pos.y += UnityEngine.Random.Range(-range / 2.0f, range / 2.0f);
+        pos.x += UnityEngine.Random.Range(-crowdSpread / 2.0f, crowdSpread / 2.0f);
+        pos.y += UnityEngine.Random.Range(-crowdSpread / 2.0f, crowdSpread / 2.0f);
 
         return pos;
     }

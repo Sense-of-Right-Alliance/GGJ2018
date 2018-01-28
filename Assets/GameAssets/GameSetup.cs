@@ -9,7 +9,8 @@ using Rewired;
 public class GameSetup : MonoBehaviour {
 
     private const float STAGE_SPAWN_X = 0.25f;
-    private const float STAGE_SPAWN_Y = 0.2f;
+    private const float STAGE_SPACING = 3f; //0.2f;
+    private const float STAGE_SPAWN_Y = 1.2f; //0.2f;
 
     private const float TEXT_DIST_X = 5.0f;
 
@@ -19,10 +20,10 @@ public class GameSetup : MonoBehaviour {
     private FanController _fanController;
 
     private Vector3[] stagePositions = new Vector3[] {
-        new Vector3(-STAGE_SPAWN_X, STAGE_SPAWN_Y, 0.0f),
-        new Vector3(STAGE_SPAWN_X, STAGE_SPAWN_Y, 0.0f),
-        new Vector3(STAGE_SPAWN_X, -STAGE_SPAWN_Y, 0.0f),
-        new Vector3(-STAGE_SPAWN_X, -STAGE_SPAWN_Y, 0.0f),
+        new Vector3(-STAGE_SPACING * 1.5f, STAGE_SPAWN_Y, 0.0f),//new Vector3(-STAGE_SPAWN_X, STAGE_SPAWN_Y, 0.0f),
+        new Vector3(-STAGE_SPACING * 0.5f, STAGE_SPAWN_Y, 0.0f),//new Vector3(STAGE_SPAWN_X, STAGE_SPAWN_Y, 0.0f),
+        new Vector3(STAGE_SPACING * 0.5f, STAGE_SPAWN_Y, 0.0f),//new Vector3(STAGE_SPAWN_X, -STAGE_SPAWN_Y, 0.0f),
+        new Vector3(STAGE_SPACING * 1.5f, STAGE_SPAWN_Y, 0.0f),//new Vector3(-STAGE_SPAWN_X, -STAGE_SPAWN_Y, 0.0f),
     };
 
     private Vector3[] textPositions = new Vector3[] {

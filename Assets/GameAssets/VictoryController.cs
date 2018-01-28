@@ -7,6 +7,7 @@ public class VictoryController : MonoBehaviour {
     ScoreManager scoreManager;
 
     public RoundController roundController;
+    public FanController fanController;
     public int numRounds = 6;
 
     private int roundCount = 0;
@@ -14,6 +15,11 @@ public class VictoryController : MonoBehaviour {
     void Awake()
     {
         scoreManager = GetComponent<ScoreManager>();
+
+        if (fanController == null)
+        {
+            fanController = GetComponent<FanController>();
+        }
     }
 
     // Use this for initialization
@@ -36,15 +42,24 @@ public class VictoryController : MonoBehaviour {
             // show the score screen
             //Debug.Log("Game is over! Show the score screen!");
 
+            Dictionary<GameSettings.STAGE, List<GameObject>> stageFans = fanController.StageFans;
+            Dictionary<int, int> scores = new Dictionary<int, int>();
+            foreach (var stage in stageFans) // initalize stageFans dictionary
+            {
+                scores[(int)stage.Key] = stage.Value.Count;
+            }
+
+            /*
             Dictionary<int, int> myDict = new Dictionary<int, int>
             {
                 { 1, 100 },
                 { 2, 16 },
                 { 3, 5 }
             };
+            */
 
             Time.timeScale = 0.0f;
-            scoreManager.ShowScores(myDict);
+            scoreManager.ShowScores(scores);
         }
     }
 }
