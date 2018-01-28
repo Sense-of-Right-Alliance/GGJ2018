@@ -26,6 +26,10 @@ public class MusicController : MonoBehaviour {
         RoundController.OnRoundChange += HandleRoundChange;
     }
 
+    void OnDestroy() {
+        RoundController.OnRoundChange -= HandleRoundChange;
+    }
+
     public void HandleRoundChange() {
         // Mute audio depending on control data.
         for (int i = 0; i < GameSettings.NUM_INSTRUMENTS; i++) {

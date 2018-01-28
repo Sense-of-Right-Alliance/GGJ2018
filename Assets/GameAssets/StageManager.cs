@@ -24,8 +24,9 @@ public class StageManager : MonoBehaviour {
         crowdCenterPosition = crowdCenterTransform == null ? Vector3.zero : crowdCenterTransform.position;
     }
 
-    void OnDestroy() {
-        RoundController.OnRoundChangeEarly -= HandleRoundChange;
+    void OnDestroy()
+    {
+        RoundController.OnRoundChange -= HandleRoundChange;
     }
 
     void HandleRoundChange() {
