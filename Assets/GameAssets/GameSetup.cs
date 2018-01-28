@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,7 +37,7 @@ public class GameSetup : MonoBehaviour {
 	    _fanController = GetComponent<FanController>();
 
         int reWiredIndex = 0;
-        for (int i = 0; i < GameSettings.MAX_PLAYERS; i++) {
+        for (int i = 0; i < Math.Min(GameSettings.MAX_PLAYERS, GameSettings.PlayerTypes.Length); i++) {
             GameObject newStage = Instantiate(StagePrefab, stagePositions[i], Quaternion.identity);
             Text playerText = newStage.GetComponentInChildren<Text>();
             playerText.transform.localPosition = textPositions[i];
