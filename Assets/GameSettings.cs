@@ -12,6 +12,14 @@
         NETWORKED
     }
 
+    public enum STAGE {
+        TOPLEFT = 0,
+        TOPRIGHT = 1,
+        BOTTOMRIGHT = 2,
+        BOTTOMLEFT = 3,
+        NONE
+    }
+
     public enum INSTRUMENT {
         DRUM = 0,
         BASS = 1,

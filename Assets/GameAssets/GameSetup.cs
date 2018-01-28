@@ -15,22 +15,26 @@ public class GameSetup : MonoBehaviour {
     [SerializeField]
     private GameObject StagePrefab;
 
+    private RoundController _roundController;
+
     private Vector3[] stagePositions = new Vector3[] {
-        new Vector3(-STAGE_SPAWN_X, -STAGE_SPAWN_Y, 0.0f),
         new Vector3(-STAGE_SPAWN_X, STAGE_SPAWN_Y, 0.0f),
+        new Vector3(STAGE_SPAWN_X, STAGE_SPAWN_Y, 0.0f),
         new Vector3(STAGE_SPAWN_X, -STAGE_SPAWN_Y, 0.0f),
-        new Vector3(STAGE_SPAWN_X, STAGE_SPAWN_Y, 0.0f)
+        new Vector3(-STAGE_SPAWN_X, -STAGE_SPAWN_Y, 0.0f),
     };
 
     private Vector3[] textPositions = new Vector3[] {
         new Vector3(-TEXT_DIST_X, 0.0f, 0.0f),
-        new Vector3(-TEXT_DIST_X, 0.0f, 0.0f),
         new Vector3(TEXT_DIST_X, 0.0f, 0.0f),
-        new Vector3(TEXT_DIST_X, 0.0f, 0.0f)
+        new Vector3(TEXT_DIST_X, 0.0f, 0.0f),
+        new Vector3(-TEXT_DIST_X, 0.0f, 0.0f),
     };
 
 	// Use this for initialization
 	void Awake () {
+        _roundController = GetComponent<RoundController>();
+
         int reWiredIndex = 0;
         for (int i = 0; i < GameSettings.MAX_PLAYERS; i++) {
             GameObject newStage = Instantiate(StagePrefab, stagePositions[i], Quaternion.identity);
@@ -52,6 +56,8 @@ public class GameSetup : MonoBehaviour {
                 break;
             }
             newStage.GetComponent<StageManager>().UpdateController();
+
+            _roundController.Stages.Add((GameSettings.STAGE)i, newStage.GetComponent<StageManager>());
         }
 	}
 }
