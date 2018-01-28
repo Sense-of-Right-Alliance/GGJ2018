@@ -474,7 +474,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Player 1
+  m_Text: Player 2
 --- !u!114 &114239134984046120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -878,7 +878,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Player 1
+  m_Text: Player 4
 --- !u!114 &114687382824163872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1041,7 +1041,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Player 1
+  m_Text: Player 3
 --- !u!114 &114947179601174064
 MonoBehaviour:
   m_ObjectHideFlags: 1
