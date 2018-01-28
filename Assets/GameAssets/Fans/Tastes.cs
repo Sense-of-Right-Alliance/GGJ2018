@@ -29,15 +29,22 @@ public class Tastes
         }
     }
     
-
     public GameSettings.STAGE PickStage(Dictionary<GameSettings.STAGE, StageManager> stages)
     {
-        var scores = stages.Select(s => new KeyValuePair<GameSettings.STAGE, float>(s.Key, CalculateStageScore(s.Value))).Where(s => s.Value > 0);
-        if (!scores.Any())
+        var bestStages = stages.GroupBy(s => CalculateStageScore(s.Value)) // group stages by score
+                               .Where(g => g.Key > 0) // where score is above 0
+                               .OrderByDescending(g => g.Key) // order by best score
+                               .Select(g => g.AsEnumerable()) // select the stages
+                               .FirstOrDefault(); // take best group
+
+        if (bestStages == null) // all stages scored 0
         {
             return GameSettings.STAGE.NONE;
         }
-        return scores.OrderBy(s => Random.Range(0, 1)).Select(s => s.Key).First(); // TODO: May have to change this if we have different weights of taste
+
+        return bestStages.OrderBy(kvp => Random.Range(0, 1)) // order the stages randomly
+                         .Select(kvp => kvp.Key) // select the enum
+                         .First(); // take the first one
     }
 
     private float CalculateStageScore(StageManager stage)
