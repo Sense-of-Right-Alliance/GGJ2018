@@ -298,7 +298,7 @@ MonoBehaviour:
       _userAssignable: 1
       _categoryId: 0
     - _id: 9
-      _name: Third Action
+      _name: ThirdAction
       _type: 1
       _descriptiveName: Instrument 3
       _positiveDescriptiveName: 
@@ -307,7 +307,7 @@ MonoBehaviour:
       _userAssignable: 1
       _categoryId: 0
     - _id: 10
-      _name: Fourth Action
+      _name: FourthAction
       _type: 1
       _descriptiveName: Instrument 4
       _positiveDescriptiveName: 

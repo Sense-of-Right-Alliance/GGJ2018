@@ -34,7 +34,6 @@
 
     // Bleh these probably shouldn't be different. Start is used in menu scenes, pause is used in game.
     public const string REWIRED_SYSTEM_START = "MainAction";
-    public const string REWIRED_SYSTEM_PAUSE = "SecondaryAction";
     
     public const int MAX_PLAYERS = 4;  // Currently 4, could be eiiiight
     // TODO-DG: would also have to change Rewired to handle 8
@@ -42,6 +41,10 @@
     public static PLAYER_TYPES[] PlayerTypes = {
         PLAYER_TYPES.HUMAN,
         PLAYER_TYPES.HUMAN,
+        PLAYER_TYPES.AI,
+        PLAYER_TYPES.AI,
+        PLAYER_TYPES.AI,
+        PLAYER_TYPES.AI,
         PLAYER_TYPES.AI,
         PLAYER_TYPES.AI
     };

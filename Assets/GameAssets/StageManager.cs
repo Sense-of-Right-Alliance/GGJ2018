@@ -10,7 +10,8 @@ public class StageManager : MonoBehaviour {
     private ControlAbstractor mController;
     private ParticleSystem mParticle;
 
-    GameSettings.INSTRUMENT_ACTIONS currentAction;
+    private GameSettings.INSTRUMENT_ACTIONS currentAction;
+    private TextMesh playerText;
 
     void Start () {
         RoundController.OnRoundChange += HandleRoundChange;
@@ -25,11 +26,12 @@ public class StageManager : MonoBehaviour {
     void HandleRoundChange() {
         // Use our thing to thing
         GameSettings.INSTRUMENT_ACTIONS newAction = mController.GetAction();
-        //mParticle.startColor = emitColours[(int)newAction];
-        var col = mParticle.colorOverLifetime;
-        Gradient grad = new Gradient();
-        grad.SetKeys( new GradientColorKey[] { new GradientColorKey(emitColours[(int)newAction], 0.0f), new GradientColorKey(emitColours[(int)newAction], 1.0f)}, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.05f, 1.0f) } );
-        col.color = grad;
+        if (newAction != currentAction && newAction != GameSettings.INSTRUMENT_ACTIONS.NONE) {
+            var col = mParticle.colorOverLifetime;
+            Gradient grad = new Gradient();
+            grad.SetKeys( new GradientColorKey[] { new GradientColorKey(emitColours[(int)newAction], 0.0f), new GradientColorKey(emitColours[(int)newAction], 1.0f)}, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.05f, 1.0f) } );
+            col.color = grad;
+        }
     }
 
     public void UpdateController() {

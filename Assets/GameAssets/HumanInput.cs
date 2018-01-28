@@ -18,6 +18,7 @@ public class HumanInput : ControlAbstractor {
     void Update() {
         if (mPlayer != null) {
             if (mPlayer.GetButtonDown(GameSettings.REWIRED_MAIN_BTN)) {
+                Debug.Log("Main button pushed!");
                 currentAction = GameSettings.INSTRUMENT_ACTIONS.ACTION_0;
             } else if (mPlayer.GetButtonDown(GameSettings.REWIRED_SECONDARY_BTN)) {
                 currentAction = GameSettings.INSTRUMENT_ACTIONS.ACTION_1;
