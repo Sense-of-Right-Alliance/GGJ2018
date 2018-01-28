@@ -30,7 +30,7 @@ public class Tastes
         {
             return GameSettings.STAGE.NONE;
         }
-        return scores.OrderBy(s => Random.Range(0, 1)).Select(s => s.Key).First();
+        return scores.OrderBy(s => Random.Range(0, 1)).Select(s => s.Key).First(); // TODO: May have to change this if we have different weights of taste
     }
 
     private float CalculateStageScore(StageManager stage)

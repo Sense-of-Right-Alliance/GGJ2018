@@ -8,6 +8,8 @@ public class RoundController : MonoBehaviour
     public delegate void RoundAction();
     public static event RoundAction OnRoundChange;
 
+    public static event RoundAction OnFirstRoundStart;
+
     [SerializeField]
     private float roundTime = 5.0f;
     [SerializeField]
@@ -41,6 +43,8 @@ public class RoundController : MonoBehaviour
     {
         roundTimer = roundTime; // NOTE: Round change is not called at the very start of the game
         animatingIn = true;
+
+        if (OnFirstRoundStart != null) OnFirstRoundStart();
     }
 	
 	// Update is called once per frame

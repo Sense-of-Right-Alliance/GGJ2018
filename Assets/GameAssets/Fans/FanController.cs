@@ -37,18 +37,18 @@ public class FanController : MonoBehaviour {
         fanFabs[3] = trumpetFanPrefab;
 
         RoundController.OnRoundChange += HandleRoundChange;
+        RoundController.OnFirstRoundStart += HandleRoundStart;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        // THIS IS ONLY TO TEST. DON'T WORRY
-		/*
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            SpawnNewCrowd(10);
-        }
-        */
+
 	}
+
+    void HandleRoundStart()
+    {
+        HandleRoundChange();
+    }
 
     void HandleRoundChange()
     {
