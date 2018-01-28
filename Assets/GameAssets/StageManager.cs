@@ -5,7 +5,7 @@ using UnityEngine;
 public class StageManager : MonoBehaviour {
 
     private const float PARTICLE_ALPHA_START = 1.0f;
-    private const float PARTICLE_ALPHA_END = 0.8f;
+    private const float PARTICLE_ALPHA_END = 0.2f;
 
     [SerializeField]
     Transform crowdCenterTransform;
@@ -34,6 +34,7 @@ public class StageManager : MonoBehaviour {
         // display colourful effect when changing instruments
         GameSettings.INSTRUMENT newInstrument = mController.GetInstrument();
         if (newInstrument != CurrentInstrument && newInstrument != GameSettings.INSTRUMENT.NONE) {
+            mParticle.startColor = GameSettings.FanColours[(int)newInstrument];
             var col = mParticle.colorOverLifetime;
             Gradient grad = new Gradient();
             grad.SetKeys( new GradientColorKey[] { 

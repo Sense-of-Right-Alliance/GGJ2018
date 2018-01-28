@@ -133,11 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a1db4373dad4aa59fd29a730fea6a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emitColours:
-  - {r: 1, g: 0.5586207, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0.048275948, a: 1}
-  - {r: 0.90344834, g: 1, b: 0, a: 1}
-  - {r: 0.697, g: 0, b: 0, a: 1}
   crowdCenterTransform: {fileID: 4053575798747198}
 --- !u!114 &114862672567333300
 MonoBehaviour:
@@ -322,7 +317,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.759}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -878,7 +873,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 5
+      scalar: 4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1134,10 +1129,10 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 0.8784314}
         key1: {r: 1, g: 1, b: 1, a: 0.5019608}
         key2: {r: 0, g: 0, b: 0, a: 0.19607843}
-        key3: {r: 0, g: 0, b: 0, a: 0.039215688}
+        key3: {r: 0, g: 0, b: 0, a: 0.19607843}
         key4: {r: 0, g: 0, b: 0, a: 0.039215688}
         key5: {r: 0, g: 0, b: 0, a: 0.039215688}
         key6: {r: 0, g: 0, b: 0, a: 0.039215688}
@@ -1150,10 +1145,10 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 13928
-        atime1: 51964
-        atime2: 65446
-        atime3: 65446
+        atime0: 8125
+        atime1: 31696
+        atime2: 65356
+        atime3: 65356
         atime4: 65446
         atime5: 65446
         atime6: 65446
