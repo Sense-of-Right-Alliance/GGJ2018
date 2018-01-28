@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 using Rewired;
 
@@ -9,7 +10,7 @@ public class GameSetup : MonoBehaviour {
     private const float STAGE_SPAWN_X = 0.25f;
     private const float STAGE_SPAWN_Y = 0.2f;
 
-    private const float TEXT_DIST_X = 5f;
+    private const float TEXT_DIST_X = 5.0f;
 
     [SerializeField]
     private GameObject StagePrefab;
@@ -33,18 +34,18 @@ public class GameSetup : MonoBehaviour {
         int reWiredIndex = 0;
         for (int i = 0; i < GameSettings.MAX_PLAYERS; i++) {
             GameObject newStage = Instantiate(StagePrefab, stagePositions[i], Quaternion.identity);
-            TextMesh mText = newStage.GetComponentInChildren<TextMesh>();
-            mText.transform.localPosition = textPositions[i];
+            Text playerText = newStage.GetComponentInChildren<Text>();
+            playerText.transform.localPosition = textPositions[i];
             switch (GameSettings.PlayerTypes[i]) {
                 case GameSettings.PLAYER_TYPES.HUMAN:
                     newStage.AddComponent(typeof(HumanInput));
                     HumanInput newInput = newStage.GetComponent<HumanInput>();
                     newInput.SetPlayer(ReInput.players.GetPlayer(reWiredIndex++));
-                    mText.text = "P" + reWiredIndex;
+                    playerText.text = "P" + reWiredIndex;
                     break;
                 case GameSettings.PLAYER_TYPES.AI:
                     newStage.AddComponent(typeof(AIInput));
-                    mText.text = "CPU";
+                    playerText.text = "CPU";
                     break;
                 case GameSettings.PLAYER_TYPES.NETWORKED:
                     newStage.AddComponent(typeof(NetworkInput));

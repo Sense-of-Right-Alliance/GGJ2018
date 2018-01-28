@@ -11,9 +11,9 @@ public class StageManager : MonoBehaviour {
     private ParticleSystem mParticle;
 
     private GameSettings.INSTRUMENT_ACTIONS currentAction;
-    private TextMesh playerText;
 
     void Start () {
+        currentAction = GameSettings.INSTRUMENT_ACTIONS.NONE;
         RoundController.OnRoundChange += HandleRoundChange;
         mParticle = GetComponent<ParticleSystem>();
     }
@@ -31,6 +31,7 @@ public class StageManager : MonoBehaviour {
             Gradient grad = new Gradient();
             grad.SetKeys( new GradientColorKey[] { new GradientColorKey(emitColours[(int)newAction], 0.0f), new GradientColorKey(emitColours[(int)newAction], 1.0f)}, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.05f, 1.0f) } );
             col.color = grad;
+            currentAction = newAction;
         }
     }
 
