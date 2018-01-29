@@ -12,6 +12,11 @@ public class Tastes
 
     public Tastes(GameSettings.FAN_TYPE fanType)
     {
+        FluteDesire = 0;
+        BassDesire = 0;
+        DrumDesire = 0;
+        TrumpetDesire = 0;
+
         switch (fanType)
         {
             case GameSettings.FAN_TYPE.FLUTE:

@@ -9,6 +9,8 @@ public class Fan : MonoBehaviour {
     Animator spriteAnimator;
     [SerializeField]
     GameSettings.FAN_TYPE fanType;
+    [SerializeField]
+    Sprite promoterSprite;
 
     Tastes tastes;
 
@@ -21,12 +23,23 @@ public class Fan : MonoBehaviour {
     Vector3 endPos;
     float lerpSpeed = 0.0f;
 
-	// Use this for initialization
-	void Start () {
+    bool isPromoter = false;
+    public bool IsPromoter { get { return isPromoter; } }
+    public GameSettings.FAN_TYPE FanType { get { return fanType; } }
+
+    // Use this for initialization
+    void Start () {
 	    tastes = new Tastes(fanType);
     }
 
     public GameSettings.STAGE PickStage(Dictionary<GameSettings.STAGE, StageManager> stages) { return tastes.PickStage(stages); }
+
+    public void SetToPromoter()
+    {
+        isPromoter = true;
+
+        GetComponentInChildren<SpriteRenderer>().sprite = promoterSprite;
+    }
 
     public void MoveTo(Vector3 pos, float delay)
     {

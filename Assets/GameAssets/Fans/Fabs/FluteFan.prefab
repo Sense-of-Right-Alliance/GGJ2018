@@ -102,6 +102,7 @@ MonoBehaviour:
   moveSpeed: 3
   spriteAnimator: {fileID: 95657834784454302}
   fanType: 3
+  promoterSprite: {fileID: 21300000, guid: 86d9f32b2dd282240901226c271c5463, type: 3}
 --- !u!212 &212548721949452366
 SpriteRenderer:
   m_ObjectHideFlags: 1
