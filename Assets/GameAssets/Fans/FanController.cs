@@ -22,6 +22,8 @@ public class FanController : MonoBehaviour {
 
     [SerializeField]
     float crowdSpread = 1.0f;
+    [SerializeField]
+    float promoterChance = 0.05f;
 
     Vector3 spawnPosition;
     Vector3 crowdCenterPosition;
@@ -90,18 +92,55 @@ public class FanController : MonoBehaviour {
 
     void SelectStages()
     {
+        Dictionary<int, bool> promoterPresent = new Dictionary<int, bool>();
+        promoterPresent[(int)GameSettings.FAN_TYPE.BASS] = false;
+        promoterPresent[(int)GameSettings.FAN_TYPE.DRUM] = false;
+        promoterPresent[(int)GameSettings.FAN_TYPE.FLUTE] = false;
+        promoterPresent[(int)GameSettings.FAN_TYPE.TRUMPET] = false;
+
+        Dictionary<int, int> stageCounts = new Dictionary<int, int>();
+        stageCounts[(int)GameSettings.FAN_TYPE.BASS] = 0;
+        stageCounts[(int)GameSettings.FAN_TYPE.DRUM] = 0;
+        stageCounts[(int)GameSettings.FAN_TYPE.FLUTE] = 0;
+        stageCounts[(int)GameSettings.FAN_TYPE.TRUMPET] = 0;
+
+        // Check for any promoters in the crowd
         int i = 0;
         foreach (var fanObject in fans.ToList())
         {
             var fan = fanObject.GetComponent<Fan>();
-            var stageType = fan.PickStage(Stages);
-            if (Stages.ContainsKey(stageType))
+            if (!promoterPresent[(int)fan.FanType])
             {
-                var stage = Stages[stageType];
-                fan.MoveTo(stage.GetCrowdPosition(), i++ * 0.06f);
+                promoterPresent[(int)fan.FanType] = fan.IsPromoter;
+            }
+        }
 
-                fans.Remove(fanObject);
-                _stageFans[stageType].Add(fanObject);
+        // Count how many stages have picked the same instruments
+        foreach (var stage in Stages)
+        {
+            if (stage.Value.CurrentInstrument != GameSettings.INSTRUMENT.NONE)
+            {
+                stageCounts[(int)stage.Value.CurrentInstrument] += 1;
+            }
+        }
+
+        i = 0;
+        foreach (var fanObject in fans.ToList())
+        {
+            var fan = fanObject.GetComponent<Fan>();
+
+            // If there's a promoter for this fan type, and more than one person picked this instrument, no one goes!
+            if (!(promoterPresent[(int)fan.FanType] && stageCounts[(int)fan.FanType] > 1))
+            {
+                var stageType = fan.PickStage(Stages);
+                if (Stages.ContainsKey(stageType))
+                {
+                    var stage = Stages[stageType];
+                    fan.MoveTo(stage.GetCrowdPosition(), i++ * 0.06f);
+
+                    fans.Remove(fanObject);
+                    _stageFans[stageType].Add(fanObject);
+                }
             }
         }
     }
@@ -110,15 +149,17 @@ public class FanController : MonoBehaviour {
     {
         for (int i = 0; i < crowdSize; i++)
         {
-            //if (i > fans.Count)
-            //{
+            GameObject fan = CreateNewFan(fanFabs[UnityEngine.Random.Range(0,fanFabs.Length)]);
+                
+            if (UnityEngine.Random.value <= promoterChance)
+            {
+                fan.GetComponent<Fan>().SetToPromoter();
+                crowdSize +=2;
+            }
 
-                GameObject fan = CreateNewFan(fanFabs[UnityEngine.Random.Range(0,fanFabs.Length)]);
+            fan.transform.position = spawnPosition;
 
-                fan.transform.position = spawnPosition;
-
-                fan.GetComponent<Fan>().MoveTo(GetCrowdPosition(), i*0.06f);
-            //}
+            fan.GetComponent<Fan>().MoveTo(GetCrowdPosition(), i*0.06f);
         }
     }
 
