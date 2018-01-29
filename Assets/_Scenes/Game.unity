@@ -153,6 +153,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114499953374694610, guid: e40fd8c6779f44912b9b5417d2ed31be,
+        type: 2}
+      propertyPath: _userData.joystickMaps.Array.data[0].actionElementMaps.Array.data[3]._elementIdentifierId
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114499953374694610, guid: e40fd8c6779f44912b9b5417d2ed31be,
+        type: 2}
+      propertyPath: _userData.joystickMaps.Array.data[0].actionElementMaps.Array.data[2]._elementIdentifierId
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e40fd8c6779f44912b9b5417d2ed31be, type: 2}
   m_IsPrefabParent: 0

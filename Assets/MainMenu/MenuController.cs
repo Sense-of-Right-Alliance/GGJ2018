@@ -110,6 +110,7 @@ public class MenuController : MonoBehaviour {
             case MENU_STATE.MAIN_MENU:
                 teamCanvas.gameObject.SetActive(true);
                 teamCanvas.GetComponent<TeamSelectController>().Reset();
+                teamCanvas.GetComponent<TeamSelectController>().SizeControllers();
                 splashCanvas.gameObject.SetActive(false);
                 splashBackgroundCanvas.gameObject.SetActive(false);
                 currentState = MENU_STATE.TEAM_SELECT;
