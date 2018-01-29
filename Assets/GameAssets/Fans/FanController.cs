@@ -22,6 +22,8 @@ public class FanController : MonoBehaviour {
 
     [SerializeField]
     float crowdSpread = 1.0f;
+    [SerializeField]
+    float promoterChance = 0.05f;
 
     Vector3 spawnPosition;
     Vector3 crowdCenterPosition;
@@ -149,7 +151,7 @@ public class FanController : MonoBehaviour {
         {
             GameObject fan = CreateNewFan(fanFabs[UnityEngine.Random.Range(0,fanFabs.Length)]);
                 
-            if (UnityEngine.Random.value <= 0.2f)
+            if (UnityEngine.Random.value <= promoterChance)
             {
                 fan.GetComponent<Fan>().SetToPromoter();
                 crowdSize +=2;
