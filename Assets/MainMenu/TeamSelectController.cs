@@ -38,10 +38,16 @@ public class TeamSelectController : MonoBehaviour {
     }
 
     public void SizeControllers() {
+        if (NumJoined < 1) {
+            return;
+        }
+        int numToDisplay = 0;
         float controllerYRatio = 1.0f/NumJoined;
         for (int i = 0; i < GameSettings.MAX_PLAYERS; i++) {
-            nesControllerTransforms[i].anchorMin = new Vector2(nesControllerTransforms[i].anchorMin.x, 1.0f - (i+1)*controllerYRatio);
-            nesControllerTransforms[i].anchorMax = new Vector2(nesControllerTransforms[i].anchorMax.x, 1.0f - i*controllerYRatio);
+            if (isJoined[i]) {
+                nesControllerTransforms[i].anchorMin = new Vector2(nesControllerTransforms[i].anchorMin.x, 1.0f - (numToDisplay+1)*controllerYRatio);
+                nesControllerTransforms[i].anchorMax = new Vector2(nesControllerTransforms[i].anchorMax.x, 1.0f - numToDisplay++*controllerYRatio);
+            }
         }
     }
 
@@ -50,6 +56,7 @@ public class TeamSelectController : MonoBehaviour {
 		for (int i = 0; i < GameSettings.MAX_PLAYERS; i++) {
             rewiredPlayers[i] = ReInput.players.GetPlayer(i);
             isJoined[i] = false;
+            nesControllerTransforms[i].gameObject.SetActive(false);
         }
     }
 
@@ -59,7 +66,6 @@ public class TeamSelectController : MonoBehaviour {
             nesControllerTransforms[i].SetParent(controllerHolderTransform);
             nesControllerTransforms[i].GetComponentInChildren<Text>().text = "P" + (i+1);
             nesControllerTransforms[i].localScale = new Vector3(1,1,1);
-            nesControllerTransforms[i].gameObject.SetActive(false);
         }
         Reset();
 	}
@@ -101,7 +107,14 @@ public class TeamSelectController : MonoBehaviour {
                 if (startPressed && startCooldown > INPUT_COOLDOWN) {
                     // If any player pressed start go to the next screen
                     // Determine how many players there are and where they should live.
-                    
+                    for (int j = 0; j < GameSettings.MAX_PLAYERS; j++) {
+                        if (isJoined[j]) {
+                            GameSettings.PlayerTypes[j] = GameSettings.PLAYER_TYPES.HUMAN;
+                        } else {
+                            GameSettings.PlayerTypes[j] = GameSettings.PLAYER_TYPES.AI;
+                        }
+                        
+                    }
                     menuController.Forward();
                 }
             } else {
