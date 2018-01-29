@@ -50,14 +50,15 @@ public static class GameSettings {
     
     // Scene Names:
     public const string MAIN_MENU_SCENE = "Init";
+    public const string INSTRUCTION_SCENE = "InstructionScene";
     public const string GAME_SCENE = "Game";
 
     // Button Names:
     public const string REWIRED_START = "Start";
-    public const string REWIRED_MAIN_BTN = "MainAction";
-    public const string REWIRED_SECONDARY_BTN = "SecondaryAction";
-    public const string REWIRED_THIRD_BTN = "ThirdAction";
-    public const string REWIRED_FOURTH_BTN = "FourthAction";
+    public const string REWIRED_MAIN_BTN = "MainAction"; // drum (a)
+    public const string REWIRED_SECONDARY_BTN = "SecondaryAction"; // bass (b)
+    public const string REWIRED_THIRD_BTN = "ThirdAction"; // flute (y)
+    public const string REWIRED_FOURTH_BTN = "FourthAction"; // trumpet (x)
 
     // Bleh these probably shouldn't be different. Start is used in menu scenes, pause is used in game.
     public const string REWIRED_SYSTEM_START = "MainAction";

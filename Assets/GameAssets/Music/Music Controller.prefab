@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45491600933f34cc5aafdb1ab874b15b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rController: {fileID: 0}
+  vController: {fileID: 0}
   SongData:
   - mArray:
     - {fileID: 8300000, guid: 114d9bf38fc034da4b4f2f8cc897c2d0, type: 3}

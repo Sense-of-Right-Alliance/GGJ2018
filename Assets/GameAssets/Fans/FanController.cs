@@ -176,8 +176,10 @@ public class FanController : MonoBehaviour {
     {
         Vector3 pos = crowdCenterPosition;
 
+        float horizontalSpread = 4.0f * crowdSpread;
+
         // To Do: Distribute position so the crowd is spread out and fans are not overlapping one another
-        pos.x += UnityEngine.Random.Range(-crowdSpread / 2.0f, crowdSpread / 2.0f);
+        pos.x += UnityEngine.Random.Range(-horizontalSpread / 2.0f, horizontalSpread / 2.0f);
         pos.y += UnityEngine.Random.Range(-crowdSpread / 2.0f, crowdSpread / 2.0f);
 
         return pos;
