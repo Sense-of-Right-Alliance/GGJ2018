@@ -138,6 +138,8 @@ public class FanController : MonoBehaviour {
                     var stage = Stages[stageType];
                     fan.MoveTo(stage.GetCrowdPosition(), i++ * 0.06f);
 
+                    fan.SetToStage();
+
                     fans.Remove(fanObject);
                     _stageFans[stageType].Add(fanObject);
                 }

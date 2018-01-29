@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -238,8 +238,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa875331ad442482ba5ceca7f62ff578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StagePrefab: {fileID: 1367064584916276, guid: aff4f6325d9ec44f9bd945273810199b,
-    type: 2}
+  Stage1Prefab: {fileID: 0}
+  Stage2Prefab: {fileID: 0}
+  Stage3Prefab: {fileID: 0}
+  Stage4Prefab: {fileID: 0}
   musicController: {fileID: 341619279}
 --- !u!4 &423095125
 Transform:
@@ -275,6 +277,9 @@ MonoBehaviour:
     type: 2}
   spawnTransform: {fileID: 449179660}
   crowdCenterTransform: {fileID: 1254303529}
+  victoryController: {fileID: 0}
+  crowdSpread: 1
+  promoterChance: 0.05
 --- !u!114 &423095127
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,9 +27,17 @@ public class Fan : MonoBehaviour {
     public bool IsPromoter { get { return isPromoter; } }
     public GameSettings.FAN_TYPE FanType { get { return fanType; } }
 
+    bool atStage = false;
+    public void SetToStage()
+    {
+        atStage = true;
+    }
+
     // Use this for initialization
     void Start () {
 	    tastes = new Tastes(fanType);
+
+        RoundController.OnRoundChange += HandleRoundChange;
     }
 
     public GameSettings.STAGE PickStage(Dictionary<GameSettings.STAGE, StageManager> stages) { return tastes.PickStage(stages); }
@@ -39,6 +47,19 @@ public class Fan : MonoBehaviour {
         isPromoter = true;
 
         GetComponentInChildren<SpriteRenderer>().sprite = promoterSprite;
+    }
+
+    void HandleRoundChange()
+    {
+        if (!atStage && isPromoter)
+        {
+            DoHop();
+        }
+    }
+
+    void DoHop()
+    {
+        spriteAnimator.SetTrigger("Jump");
     }
 
     public void MoveTo(Vector3 pos, float delay)
