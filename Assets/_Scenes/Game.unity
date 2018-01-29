@@ -364,6 +364,11 @@ Prefab:
       propertyPath: numRounds
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114316763658292906, guid: 8253014467fc52d4aabbaad6711d63af,
+        type: 2}
+      propertyPath: m_Text
+      value: Rematch
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8253014467fc52d4aabbaad6711d63af, type: 2}
   m_IsPrefabParent: 0
