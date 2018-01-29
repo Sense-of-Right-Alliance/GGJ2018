@@ -2,6 +2,7 @@
 public static class GameSettings {
 
     public const bool THIRTY_SECONDS = false;
+    public const bool VOMIT_EVERYWHERE = true;
 
     public enum DEBUG_STATE {
         RELEASE = 0,
