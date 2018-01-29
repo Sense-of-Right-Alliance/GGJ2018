@@ -27,12 +27,11 @@ public class MusicController : MonoBehaviour {
             audioSources[i].clip = SongData[songIndex].mArray[i];
             audioSources[i].Play();
         }
-        if (!GameSettings.THIRTY_SECONDS && vController) {
-            int numRounds = (int)SongData[songIndex].mArray[0].length / 5;
+        if (!GameSettings.THIRTY_SECONDS && vController && rController) {
+            float songLength = SongData[songIndex].mArray[0].length - rController.RemainingDelay;
+            int numRounds =  (int)songLength/ 5;
             vController.numRounds = numRounds;
-            if (rController) {
-                rController.RoundTime = SongData[songIndex].mArray[0].length / (float)numRounds;
-            }
+            rController.RoundTime = songLength / (float)numRounds;
         }
 
         RoundController.OnRoundChange += HandleRoundChange;

@@ -18,6 +18,9 @@ public class RoundController : MonoBehaviour
     }
     [SerializeField]
     private float startDelay = 2.0f;
+    public float RemainingDelay {
+        get {return startDelay - startDelayTimer;}
+    }
     [SerializeField]
     private GameObject timerText;
 
