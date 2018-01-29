@@ -8,6 +8,9 @@ public class TeamSelectController : MonoBehaviour {
     private const float INPUT_COOLDOWN = 0.18f;
 
     [SerializeField]
+    private Sprite[] stageSprites;
+
+    [SerializeField]
     private RectTransform controllerHolderTransform;
 
     private float startCooldown = 0.0f; // Used to avoid double start from main menu.
@@ -45,8 +48,8 @@ public class TeamSelectController : MonoBehaviour {
         float controllerYRatio = 1.0f/NumJoined;
         for (int i = 0; i < GameSettings.MAX_PLAYERS; i++) {
             if (isJoined[i]) {
-                nesControllerTransforms[i].anchorMin = new Vector2(nesControllerTransforms[i].anchorMin.x, 1.0f - (numToDisplay+1)*controllerYRatio);
-                nesControllerTransforms[i].anchorMax = new Vector2(nesControllerTransforms[i].anchorMax.x, 1.0f - numToDisplay++*controllerYRatio);
+                nesControllerTransforms[i].anchorMin = new Vector2(numToDisplay*controllerYRatio, nesControllerTransforms[i].anchorMin.y);
+                nesControllerTransforms[i].anchorMax = new Vector2(++numToDisplay*controllerYRatio, nesControllerTransforms[i].anchorMax.y);
             }
         }
     }
@@ -81,6 +84,7 @@ public class TeamSelectController : MonoBehaviour {
                     if (rewiredPlayers[i].GetButtonDown(GameSettings.REWIRED_MAIN_BTN)) {
                         if (!isJoined[i]) {
                             isJoined[i] = true;
+                            nesControllerTransforms[i].gameObject.GetComponentInChildren<Image>().sprite = stageSprites[i];
                             nesControllerTransforms[i].gameObject.SetActive(true);
                             changed = true;
                         }
