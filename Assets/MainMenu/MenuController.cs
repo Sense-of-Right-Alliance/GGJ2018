@@ -116,7 +116,7 @@ public class MenuController : MonoBehaviour {
                 break;
             case MENU_STATE.TEAM_SELECT:
                 // Start the game!
-                SceneManager.LoadScene(GameSettings.GAME_SCENE);
+                SceneManager.LoadScene(GameSettings.INSTRUCTION_SCENE);
                 break;
         }
     }

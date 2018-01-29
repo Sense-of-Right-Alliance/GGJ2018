@@ -47,6 +47,9 @@ TagManager:
   - name: Effects
     uniqueID: 3450449207
     locked: 0
+  - name: Performer
+    uniqueID: 3432008587
+    locked: 0
   - name: Fan
     uniqueID: 2767742147
     locked: 0
