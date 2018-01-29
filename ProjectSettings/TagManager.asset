@@ -44,9 +44,9 @@ TagManager:
   - name: Stage
     uniqueID: 4046350713
     locked: 0
-  - name: Fan
-    uniqueID: 2767742147
-    locked: 0
   - name: Effects
     uniqueID: 3450449207
+    locked: 0
+  - name: Fan
+    uniqueID: 2767742147
     locked: 0

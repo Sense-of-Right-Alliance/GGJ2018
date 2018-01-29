@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 public static class GameSettings {
 
+    public const bool THIRTY_SECONDS = false;
+
     public enum DEBUG_STATE {
         RELEASE = 0,
         DEBUG_LITE = 1, // This is a mode that players can activate to provide additional information such as the version number.
