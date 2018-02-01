@@ -3690,7 +3690,7 @@ Prefab:
     - target: {fileID: 224238452253213704, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 383
+      value: 327
       objectReference: {fileID: 0}
     - target: {fileID: 224238452253213704, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
         type: 2}
@@ -3710,7 +3710,7 @@ Prefab:
     - target: {fileID: 224532357207140904, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 383
+      value: 327
       objectReference: {fileID: 0}
     - target: {fileID: 224532357207140904, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
         type: 2}
@@ -3730,7 +3730,7 @@ Prefab:
     - target: {fileID: 224631293557882582, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 383
+      value: 327
       objectReference: {fileID: 0}
     - target: {fileID: 224631293557882582, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
         type: 2}
@@ -3750,7 +3750,7 @@ Prefab:
     - target: {fileID: 224886741557158518, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 383
+      value: 327
       objectReference: {fileID: 0}
     - target: {fileID: 224886741557158518, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
         type: 2}
@@ -3770,13 +3770,77 @@ Prefab:
     - target: {fileID: 224342314187478036, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 383
+      value: 327
       objectReference: {fileID: 0}
     - target: {fileID: 224342314187478036, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: -425
       objectReference: {fileID: 0}
+    - target: {fileID: 1404795670373982, guid: 82114093fc0d5794e84a2d35f4c2a4e8, type: 2}
+      propertyPath: m_Name
+      value: Bass
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159311546603424, guid: 82114093fc0d5794e84a2d35f4c2a4e8, type: 2}
+      propertyPath: m_Name
+      value: Drums
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575597395393746, guid: 82114093fc0d5794e84a2d35f4c2a4e8, type: 2}
+      propertyPath: m_Name
+      value: Trumpet
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068324989099310, guid: 82114093fc0d5794e84a2d35f4c2a4e8, type: 2}
+      propertyPath: m_Name
+      value: Flute
+      objectReference: {fileID: 0}
+    - target: {fileID: 114047651222676948, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 65ce38e914545b04086ec0a814b16982,
+        type: 3}
+    - target: {fileID: 114187547848578746, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b32fe948246c17e4389d1210f8033fce,
+        type: 3}
+    - target: {fileID: 114939313851572994, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9f562f36d9971904493d348a637c89c8,
+        type: 3}
+    - target: {fileID: 114373141014038966, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 13a22c57339ebcc49990a98401cb899a,
+        type: 3}
+    - target: {fileID: 114091890806850506, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f9edc5ee6d0d8f24ebd45e4e138f43c4,
+        type: 3}
+    - target: {fileID: 114526212662556816, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 990342c25e418da48a37c26650c4de1f,
+        type: 3}
+    - target: {fileID: 114034575109648436, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4452272acdf037048ab79302682a3f93,
+        type: 3}
+    - target: {fileID: 114212728206577802, guid: 82114093fc0d5794e84a2d35f4c2a4e8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8142026b273159942a6964e4d219045c,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 82114093fc0d5794e84a2d35f4c2a4e8, type: 2}
   m_IsPrefabParent: 0
@@ -6044,6 +6108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3123d27772224414a9bebcecb0656fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageSprites: []
   controllerHolderTransform: {fileID: 642828595}
   menuController: {fileID: 380622464}
   startButton: {fileID: 514199542}
